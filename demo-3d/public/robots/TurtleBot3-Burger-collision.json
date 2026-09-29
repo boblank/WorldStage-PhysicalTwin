@@ -1,0 +1,301 @@
+{
+  "name": "ROBOTIS TurtleBot3 Burger",
+  "representation": "collision_geometry_from_official_urdf",
+  "source_repo": "https://github.com/ROBOTIS-GIT/turtlebot3",
+  "source_revision": "fc817ce3073af1d6032397c64504134882af5e9a",
+  "source_sha256": "bc453d08d6a3f2da1530201a15807edafffa5158c291dc40f5edb19ae35ca603",
+  "license": "Apache-2.0",
+  "source_file": "TurtleBot3-Burger-source.urdf",
+  "collision_file": "TurtleBot3-Burger-collision.urdf",
+  "coordinate_system": "z_up_meters",
+  "total_mass_kg": 1.001733,
+  "links": [
+    {
+      "name": "base_footprint",
+      "mass_kg": 0,
+      "collisions": []
+    },
+    {
+      "name": "base_link",
+      "mass_kg": 0.82573504,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.14,
+              0.14,
+              0.143
+            ]
+          },
+          "origin": {
+            "xyz": [
+              -0.032,
+              0.0,
+              0.07
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "wheel_left_link",
+      "mass_kg": 0.02849894,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "length": 0.018,
+            "radius": 0.033
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "wheel_right_link",
+      "mass_kg": 0.02849894,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "length": 0.018,
+            "radius": 0.033
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "caster_back_link",
+      "mass_kg": 0.005,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.03,
+              0.009,
+              0.02
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.001,
+              0.0
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "imu_link",
+      "mass_kg": 0,
+      "collisions": []
+    },
+    {
+      "name": "base_scan",
+      "mass_kg": 0.114,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "length": 0.0315,
+            "radius": 0.055
+          },
+          "origin": {
+            "xyz": [
+              0.015,
+              0.0,
+              -0.0065
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "joints": [
+    {
+      "name": "base_joint",
+      "type": "fixed",
+      "parent": "base_footprint",
+      "child": "base_link",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.0,
+          0.01
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "limit": null
+    },
+    {
+      "name": "wheel_left_joint",
+      "type": "continuous",
+      "parent": "base_link",
+      "child": "wheel_left_link",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.08,
+          0.023
+        ],
+        "rpy": [
+          -1.57,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "limit": null
+    },
+    {
+      "name": "wheel_right_joint",
+      "type": "continuous",
+      "parent": "base_link",
+      "child": "wheel_right_link",
+      "origin": {
+        "xyz": [
+          0.0,
+          -0.08,
+          0.023
+        ],
+        "rpy": [
+          -1.57,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "limit": null
+    },
+    {
+      "name": "caster_back_joint",
+      "type": "fixed",
+      "parent": "base_link",
+      "child": "caster_back_link",
+      "origin": {
+        "xyz": [
+          -0.081,
+          0.0,
+          -0.004
+        ],
+        "rpy": [
+          -1.57,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "limit": null
+    },
+    {
+      "name": "imu_joint",
+      "type": "fixed",
+      "parent": "base_link",
+      "child": "imu_link",
+      "origin": {
+        "xyz": [
+          -0.032,
+          0.0,
+          0.068
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "limit": null
+    },
+    {
+      "name": "scan_joint",
+      "type": "fixed",
+      "parent": "base_link",
+      "child": "base_scan",
+      "origin": {
+        "xyz": [
+          -0.032,
+          0.0,
+          0.172
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "limit": null
+    }
+  ]
+}

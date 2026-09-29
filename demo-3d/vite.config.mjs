@@ -7,6 +7,7 @@ export default defineConfig({
       input: {
         studio: resolve(import.meta.dirname, 'index.html'),
         lab: resolve(import.meta.dirname, 'lab.html'),
+        worldgen: resolve(import.meta.dirname, 'worldgen.html'),
       },
     },
   },

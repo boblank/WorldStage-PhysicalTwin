@@ -1,0 +1,175 @@
+{
+  "schema": "worldstage.physical.v1",
+  "units": "m_kg_s",
+  "coordinate_system": "z_up",
+  "gravity_m_s2": [
+    0,
+    0,
+    -9.81
+  ],
+  "parameter_status": "estimated_from_visual_mesh",
+  "visual_generation": "Hyper3D WorldGen exported meshes",
+  "ground": {
+    "size_m": [
+      16,
+      16
+    ],
+    "friction": 0.8
+  },
+  "obstacles": [
+    {
+      "id": "stairs",
+      "name": "four-step stair",
+      "kind": "box",
+      "position": [
+        -2.7949,
+        0.3449,
+        0.2822
+      ],
+      "size": [
+        1.1809,
+        2.1555,
+        0.5645
+      ],
+      "yaw": 0,
+      "mass_kg": 0.0,
+      "friction": 0.8,
+      "material": "stone",
+      "physical_parameter_status": "estimated_from_visual_mesh",
+      "collision_proxy_status": "bounding_box_estimate",
+      "worldgen_object_index": 0
+    },
+    {
+      "id": "block-back",
+      "name": "rear stone block",
+      "kind": "box",
+      "position": [
+        -0.6781,
+        -1.3711,
+        0.3325
+      ],
+      "size": [
+        0.7592,
+        0.6622,
+        0.6649
+      ],
+      "yaw": 0,
+      "mass_kg": 0.0,
+      "friction": 0.8,
+      "material": "stone",
+      "physical_parameter_status": "estimated_from_visual_mesh",
+      "collision_proxy_status": "bounding_box_estimate",
+      "worldgen_object_index": 1
+    },
+    {
+      "id": "block-right",
+      "name": "right stone block",
+      "kind": "box",
+      "position": [
+        0.8163,
+        -0.277,
+        0.3873
+      ],
+      "size": [
+        0.8619,
+        0.9373,
+        0.7747
+      ],
+      "yaw": 0,
+      "mass_kg": 0.0,
+      "friction": 0.8,
+      "material": "stone",
+      "physical_parameter_status": "estimated_from_visual_mesh",
+      "collision_proxy_status": "bounding_box_estimate",
+      "worldgen_object_index": 2
+    },
+    {
+      "id": "block-front",
+      "name": "front stone block",
+      "kind": "box",
+      "position": [
+        -0.3751,
+        1.8179,
+        0.3883
+      ],
+      "size": [
+        0.8124,
+        0.8933,
+        0.7767
+      ],
+      "yaw": 0,
+      "mass_kg": 0.0,
+      "friction": 0.8,
+      "material": "stone",
+      "physical_parameter_status": "estimated_from_visual_mesh",
+      "collision_proxy_status": "bounding_box_estimate",
+      "worldgen_object_index": 3
+    },
+    {
+      "id": "ramp",
+      "name": "wooden ramp",
+      "kind": "ramp",
+      "position": [
+        2.3839,
+        1.0535,
+        0.1848
+      ],
+      "size": [
+        1.6624,
+        1.7263,
+        0.3696
+      ],
+      "yaw": 0,
+      "mass_kg": 0.0,
+      "friction": 0.6,
+      "material": "wood",
+      "physical_parameter_status": "estimated_from_visual_mesh",
+      "collision_proxy_status": "bounding_box_estimate",
+      "worldgen_object_index": 4
+    },
+    {
+      "id": "ball",
+      "name": "red foam ball",
+      "kind": "sphere",
+      "position": [
+        0.5443,
+        4.0887,
+        0.1741
+      ],
+      "size": [
+        0.3761,
+        0.3773,
+        0.3482
+      ],
+      "yaw": 0,
+      "mass_kg": 0.5,
+      "friction": 0.6,
+      "material": "warning",
+      "physical_parameter_status": "estimated_from_visual_mesh",
+      "collision_proxy_status": "bounding_box_estimate",
+      "worldgen_object_index": 5
+    },
+    {
+      "id": "rail",
+      "name": "rear safety rail",
+      "kind": "box",
+      "position": [
+        0.0995,
+        -5.645,
+        0.3723
+      ],
+      "size": [
+        6.7129,
+        0.6313,
+        0.7445
+      ],
+      "yaw": 0,
+      "mass_kg": 0.0,
+      "friction": 0.7,
+      "material": "metal",
+      "physical_parameter_status": "estimated_from_visual_mesh",
+      "collision_proxy_status": "bounding_box_estimate",
+      "worldgen_object_index": 6
+    }
+  ]
+}

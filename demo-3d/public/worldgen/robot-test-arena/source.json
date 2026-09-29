@@ -1,0 +1,54 @@
+{
+  "schema": "worldstage.scene_source.v1",
+  "producer": "Hyper3D WorldGen",
+  "workspace_url": "https://hyper3d.ai/workspace/rodin/worldgen/f33f3e2a-4a84-4477-aed4-41942da80dff",
+  "input_image_sha256": "75e8cc2591da86777b24db6a1b906c5e5da934807912f2f8b60a9688e60e4e08",
+  "input_image_file": "../worldgen-submitted-screenshot.png",
+  "background_representation": "none",
+  "source_units": "unknown",
+  "unit_conversion": "assumed 1 GLB unit = 1 metre; unverified",
+  "assets": [
+    {
+      "id": "stairs",
+      "sha256": "bae36cda0a2a48f485a0e0f6645342cbc2aa7e7b7960b349ecfeb0b11d135427",
+      "file": "../worldgen-auto-7objects/pack/separated_objects/glb/object_0000/model_pbr.glb",
+      "transform_sha256": "9def3d973e4390d444c2ceb9e7e6aaee31096df99dbb2df8b3a7268460d18c65"
+    },
+    {
+      "id": "block-back",
+      "sha256": "142df77de777489075b727eab6b21076a8ccd6e0299a9b8f745746c126086692",
+      "file": "../worldgen-auto-7objects/pack/separated_objects/glb/object_0001/model_pbr.glb",
+      "transform_sha256": "38030e05330edfe6b0d6a65cda1df6fe92554cd69c348b6fee785a512ef4600c"
+    },
+    {
+      "id": "block-right",
+      "sha256": "13b26c8db638c4e69cb5c67b7c94398844af7a89ee76f9ad651fadeae7ba5927",
+      "file": "../worldgen-auto-7objects/pack/separated_objects/glb/object_0002/model_pbr.glb",
+      "transform_sha256": "478e179ad1c28f15b9ca7434f2b2e21cf14558bbea011f0fbc329ebbb156e1ce"
+    },
+    {
+      "id": "block-front",
+      "sha256": "351df2f2a04ff47d0f78e8836c4e5bfdb7a20259d14bfd9fc59ca33b510d72a9",
+      "file": "../worldgen-auto-7objects/pack/separated_objects/glb/object_0003/model_pbr.glb",
+      "transform_sha256": "1b7b1e47cec100a256007c9e3a919179b37a72db41f62105bd6bbed15b8fd4d7"
+    },
+    {
+      "id": "ramp",
+      "sha256": "c9403e2a4da2d80e8940c96adda66dad6aa40ac2e4986e9d3d7bb977a8797033",
+      "file": "../worldgen-auto-7objects/pack/separated_objects/glb/object_0004/model_pbr.glb",
+      "transform_sha256": "fd418f72c547e2d82f4afc8f0867ebd0563a8633483ded51095873e98f5f75be"
+    },
+    {
+      "id": "ball",
+      "sha256": "d02ccbbee2dba25602644b1c5e701756a84f0e90a896d13818c3e128b73a2f4d",
+      "file": "../worldgen-auto-7objects/pack/separated_objects/glb/object_0005/model_pbr.glb",
+      "transform_sha256": "8d7db1f1adefb0fa50e20c3295b19b4f814b25c0d9c072b1c16406cbdda7ba9f"
+    },
+    {
+      "id": "rail",
+      "sha256": "291502903a73cc6b310645bbe3304c29eb8f321789f285f123478ec94df9c1e2",
+      "file": "../worldgen-auto-7objects/pack/separated_objects/glb/object_0006/model_pbr.glb",
+      "transform_sha256": "7e4a22025f9a7021ac93efdca1501abfe2aba5f69913ad163b373e7332adaa5c"
+    }
+  ]
+}

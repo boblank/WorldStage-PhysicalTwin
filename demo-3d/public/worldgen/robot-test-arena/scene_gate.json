@@ -1,0 +1,109 @@
+{
+  "schema": "worldstage.scene_gate.v1",
+  "structural_status": "PASS",
+  "mjcf_exportable": true,
+  "robot_training_status": "NOT_RUN",
+  "nvidia_simready_status": "NOT_RUN",
+  "source_producer": "Hyper3D WorldGen",
+  "object_count": 7,
+  "issues": [
+    {
+      "level": "review",
+      "code": "collision_proxy_unverified",
+      "detail": "Collision is an estimated proxy, not the exported visual mesh",
+      "object_id": "stairs"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "stairs"
+    },
+    {
+      "level": "review",
+      "code": "collision_proxy_unverified",
+      "detail": "Collision is an estimated proxy, not the exported visual mesh",
+      "object_id": "block-back"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "block-back"
+    },
+    {
+      "level": "review",
+      "code": "collision_proxy_unverified",
+      "detail": "Collision is an estimated proxy, not the exported visual mesh",
+      "object_id": "block-right"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "block-right"
+    },
+    {
+      "level": "review",
+      "code": "collision_proxy_unverified",
+      "detail": "Collision is an estimated proxy, not the exported visual mesh",
+      "object_id": "block-front"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "block-front"
+    },
+    {
+      "level": "review",
+      "code": "collision_proxy_mismatch",
+      "detail": "MJCF export uses a box proxy; inspect contact geometry before robot evaluation",
+      "object_id": "ramp"
+    },
+    {
+      "level": "review",
+      "code": "collision_proxy_unverified",
+      "detail": "Collision is an estimated proxy, not the exported visual mesh",
+      "object_id": "ramp"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "ramp"
+    },
+    {
+      "level": "review",
+      "code": "collision_proxy_unverified",
+      "detail": "Collision is an estimated proxy, not the exported visual mesh",
+      "object_id": "ball"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "ball"
+    },
+    {
+      "level": "review",
+      "code": "collision_proxy_unverified",
+      "detail": "Collision is an estimated proxy, not the exported visual mesh",
+      "object_id": "rail"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "rail"
+    },
+    {
+      "level": "review",
+      "code": "unit_scale_unverified",
+      "detail": "WorldGen GLB units have not been calibrated to metres"
+    }
+  ],
+  "asset_files_verified": 7,
+  "scenario_sha256": "c00ba0bee6469ade5a3f1d321b91918dae98039f75ad9da80fd7f3fda2c8d979",
+  "source_sha256": "682d958044f1d2460fd79afa5d449751325c8500f9ee022bbde159d0549047b1"
+}

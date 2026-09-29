@@ -59,9 +59,13 @@ class Handler(BaseHTTPRequestHandler):
             if not manifest.is_file():
                 self._json(404, {"error": "run_not_found"}); return
             self._json(200, json.loads(manifest.read_text())); return
-        file = (DIST / (path.lstrip("/") or "index.html")).resolve()
+        relative = path.lstrip("/") or "index.html"
+        file = (DIST / relative).resolve()
         if not file.is_relative_to(DIST.resolve()) or not file.is_file():
-            self._json(404, {"error": "not_found"}); return
+            public = ROOT / "public"
+            file = (public / relative).resolve()
+            if not file.is_relative_to(public.resolve()) or not file.is_file():
+                self._json(404, {"error": "not_found"}); return
         data = file.read_bytes()
         self.send_response(200)
         self.send_header("Content-Type", mimetypes.guess_type(file.name)[0] or "application/octet-stream")

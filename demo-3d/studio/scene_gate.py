@@ -73,6 +73,8 @@ def qualify(scenario: Any, source: dict[str, Any] | None = None) -> dict[str, An
             issue("error", "friction", "Friction must be in the supported [0, 2] range", label)
         if obj.get("kind") in {"ramp", "crystal", "building"}:
             issue("review", "collision_proxy_mismatch", "MJCF export uses a box proxy; inspect contact geometry before robot evaluation", label)
+        if obj.get("collision_proxy_status") not in {None, "measured", "mesh_verified"}:
+            issue("review", "collision_proxy_unverified", "Collision is an estimated proxy, not the exported visual mesh", label)
         if obj.get("physical_parameter_status", scenario.get("parameter_status")) not in {"measured", "calibrated"}:
             issue("review", "unmeasured_physics", "Mass/friction are estimates or design assumptions", label)
 
@@ -82,6 +84,8 @@ def qualify(scenario: Any, source: dict[str, Any] | None = None) -> dict[str, An
         else:
             if source.get("producer") == "Hyper3D WorldGen" and not re.fullmatch(r"[0-9a-f]{64}", str(source.get("input_image_sha256", ""))):
                 issue("error", "input_image_hash", "WorldGen image source requires SHA-256")
+            if source.get("producer") == "Hyper3D WorldGen" and source.get("source_units") == "unknown":
+                issue("review", "unit_scale_unverified", "WorldGen GLB units have not been calibrated to metres")
             assets = source.get("assets")
             if not isinstance(assets, list) or len(assets) != len(ids) or {a.get("id") for a in assets if isinstance(a, dict)} != ids:
                 issue("error", "asset_id_coverage", "Source asset IDs must match scene object IDs exactly")
@@ -125,6 +129,27 @@ def main() -> None:
     scenario_bytes = args.scenario.read_bytes()
     source_bytes = args.source.read_bytes() if args.source else None
     report = qualify(json.loads(scenario_bytes), json.loads(source_bytes) if source_bytes else None)
+    if source_bytes:
+        source_data = json.loads(source_bytes)
+        asset_issues = []
+        verified = 0
+        for asset in source_data.get("assets", []):
+            if not isinstance(asset, dict) or not asset.get("file"):
+                continue
+            asset_path = (args.source.parent / asset["file"]).resolve()
+            if not asset_path.is_file():
+                asset_issues.append({"level": "error", "code": "asset_missing", "detail": "Exported asset file is missing", "object_id": str(asset.get("id", ""))})
+            elif hashlib.sha256(asset_path.read_bytes()).hexdigest() != asset.get("sha256"):
+                asset_issues.append({"level": "error", "code": "asset_hash_mismatch", "detail": "Exported asset hash does not match receipt", "object_id": str(asset.get("id", ""))})
+            else:
+                verified += 1
+        report["asset_files_verified"] = verified
+        if verified == len(source_data.get("assets", [])) and not asset_issues:
+            report["issues"] = [item for item in report["issues"] if item["code"] != "asset_hash_declared_only"]
+        report["issues"].extend(asset_issues)
+        if asset_issues:
+            report["structural_status"] = "FAIL"
+            report["robot_training_status"] = "BLOCKED"
     report["scenario_sha256"] = hashlib.sha256(scenario_bytes).hexdigest()
     report["source_sha256"] = hashlib.sha256(source_bytes).hexdigest() if source_bytes else None
     result = json.dumps(report, ensure_ascii=False, indent=2) + "\n"

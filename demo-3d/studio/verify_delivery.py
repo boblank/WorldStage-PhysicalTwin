@@ -15,10 +15,24 @@ def main() -> None:
     required = [ROOT / 'dist/index.html', ROOT / 'dist/lab.html', ROOT / 'package.json', ROOT / 'package-lock.json', ROOT / 'public/robots/S10-source.urdf', ROOT / 'public/robots/S10-collision.urdf', ROOT / 'public/robots/LICENSE-S10.txt', ROOT / 'examples/gx10-nemotron/receipt.json']
     assert all(path.is_file() for path in required), 'build files missing'
     skills = sorted((ROOT / 'skills').glob('*/SKILL.md'))
-    assert len(skills) == 13, f'expected 13 skills, found {len(skills)}'
+    assert len(skills) == 16, f'expected 16 skills, found {len(skills)}'
+    worldgen = json.loads((ROOT / 'public/worldgen/manifest.json').read_text())
+    assert worldgen['source_provider'] == 'Hyper3D WorldGen' and worldgen['asset_count'] == 7
+    assert worldgen['physics_status'] == 'visual_only_no_verified_collision'
+    for asset in worldgen['assets']:
+        assert hashlib.sha256((ROOT / 'public/worldgen' / asset['file']).read_bytes()).hexdigest() == asset['sha256']
+    worldgen_dir = ROOT / 'public/worldgen/robot-test-arena'
+    source = json.loads((worldgen_dir / 'source.json').read_text())
+    assert hashlib.sha256((worldgen_dir / 'reference.png').read_bytes()).hexdigest() == source['input_image_sha256']
+    worldgen_gate = qualify(json.loads((worldgen_dir / 'scene.json').read_text()), source)
+    assert worldgen_gate['structural_status'] == 'PASS' and worldgen_gate['robot_training_status'] == 'NOT_RUN'
     robot = json.loads((ROOT / 'public/robots/S10-collision.json').read_text())
     assert len(robot['links']) == 20 and len(robot['joints']) == 19
     assert hashlib.sha256((ROOT / 'public/robots/S10-source.urdf').read_bytes()).hexdigest() == robot['source_sha256']
+    turtle = json.loads((ROOT / 'public/robots/TurtleBot3-Burger-collision.json').read_text())
+    assert turtle['source_revision'] == 'fc817ce3073af1d6032397c64504134882af5e9a'
+    assert hashlib.sha256((ROOT / 'public/robots/TurtleBot3-Burger-source.urdf').read_bytes()).hexdigest() == turtle['source_sha256']
+    assert turtle['license'] == 'Apache-2.0' and len(turtle['links']) == 7 and len(turtle['joints']) == 6
     scenario = json.loads((ROOT / 'examples/physical-world/scenario.json').read_text())
     assert scenario['ground']['size_m'] == [80, 80] and scenario['gravity_m_s2'] == [0, 0, -9.81]
     assert len(scenario['obstacles']) >= 8 and min(o['friction'] for o in scenario['obstacles']) <= 0.25 and max(o['friction'] for o in scenario['obstacles']) >= 1.15
@@ -54,7 +68,7 @@ def main() -> None:
     manifest = json.loads((example / 'manifest.json').read_text())
     for filename, digest in manifest['artifacts_sha256'].items():
         assert hashlib.sha256((example / filename).read_bytes()).hexdigest() == digest
-    print('PASS: build, 13 skills, S10 source SHA, scene gate, physical world assets, 3 themes, negative contract, artifact hashes')
+    print('PASS: build, 16 skills, S10/TurtleBot3 source SHA, WorldGen 7 GLB SHA, scene gate, physical world assets, 3 themes, negative contract, artifact hashes')
 
 
 if __name__ == '__main__':
