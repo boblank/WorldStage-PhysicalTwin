@@ -1,0 +1,51 @@
+{
+  "schema": "worldstage.behavior_benchmark.v1",
+  "scope": "offline_frozen_browser_and_synthetic_negative_cases",
+  "model_quality": "NOT_RUN",
+  "robot_training": "NOT_RUN",
+  "cases": [
+    {
+      "case": "recorded_browser_trace",
+      "status": "PASS",
+      "detail": "recorded browser route produces proxy contacts and stays outside policy-training tier"
+    },
+    {
+      "case": "recorded_scene_revision_split",
+      "status": "PASS",
+      "detail": "actual browser run archived an 18-object episode before adding a ramp and started a 19-object episode"
+    },
+    {
+      "case": "stuck_vs_progress",
+      "status": "PASS",
+      "detail": "one-second commanded-no-progress window detected; progress control has none"
+    },
+    {
+      "case": "human_intent_provenance",
+      "status": "PASS",
+      "detail": "keyboard intent is labeled while unknown legacy control is not guessed"
+    },
+    {
+      "case": "explicit_goal_to_replay_task",
+      "status": "PASS",
+      "detail": "human click becomes a simulator task candidate; movement alone does not invent a goal"
+    },
+    {
+      "case": "nonmonotonic_time_rejected",
+      "status": "PASS",
+      "detail": "duplicate timestamp cannot become a training candidate"
+    },
+    {
+      "case": "robot_identity_mismatch_rejected",
+      "status": "PASS",
+      "detail": "scene robot and episode URDF must be the same source"
+    },
+    {
+      "case": "scene_gate_cannot_be_overridden",
+      "status": "PASS",
+      "detail": "duplicate object ID blocks structural gate and transfer claims"
+    }
+  ],
+  "passed": 8,
+  "total": 8,
+  "status": "PASS"
+}

@@ -1,4 +1,4 @@
-"""Reproducible task and failure-case benchmark for the 16 WorldStage Skills.
+"""Reproducible task and failure-case benchmark for the WorldStage Skills.
 
 This is an offline contract benchmark. Browser puzzle completion and live model
 quality are separate gates, never inferred from passing source checks.
@@ -11,8 +11,10 @@ import hashlib
 import json
 import time
 import xml.etree.ElementTree as ET
+from functools import lru_cache
 from pathlib import Path
 
+from behavior_benchmark import run as run_behavior_benchmark
 from physical_cli import audit
 from pipeline import ROOT, build, compose, intake, interactions, narrate, plan, verify, _write
 from robot_world import base_scenario, generate_object, scenario_mjcf
@@ -114,6 +116,23 @@ def _browser(kind: str) -> tuple[bool, str]:
     return valid, f"{len(record['frames'])} browser frames, 5/5 clues, wrong answer rejected, mirror ending, 7 mesh colliders"
 
 
+@lru_cache(maxsize=1)
+def _behavior_report() -> dict:
+    return run_behavior_benchmark()
+
+
+def _behavior_skill(name: str) -> tuple[bool, str]:
+    report = _behavior_report()
+    groups = {
+        'behavior-episode-capture': {'recorded_browser_trace', 'human_intent_provenance'},
+        'nemotron-behavior-audit': {'stuck_vs_progress', 'scene_gate_cannot_be_overridden'},
+        'sim-dataset-curation': {'human_intent_provenance', 'nonmonotonic_time_rejected', 'scene_gate_cannot_be_overridden'},
+        'behavior-benchmark': {item['case'] for item in report['cases']},
+    }
+    relevant = [item for item in report['cases'] if item['case'] in groups[name]]
+    return bool(relevant) and all(item['status'] == 'PASS' for item in relevant), f"{len(relevant)} offline cases; live Nemotron quality NOT_RUN here"
+
+
 def run() -> dict:
     brief = intake('夜光森林里的记忆之门')
     planned = plan(brief, allow_model=False)
@@ -137,6 +156,10 @@ def run() -> dict:
         check('nemotron-service-audit', lambda: _nemotron_receipt()),
         check('avatar-casting', lambda: _browser('avatar')),
         check('memory-puzzle-director', lambda: _browser('puzzle')),
+        check('behavior-episode-capture', lambda: _behavior_skill('behavior-episode-capture')),
+        check('nemotron-behavior-audit', lambda: _behavior_skill('nemotron-behavior-audit')),
+        check('sim-dataset-curation', lambda: _behavior_skill('sim-dataset-curation')),
+        check('behavior-benchmark', lambda: _behavior_skill('behavior-benchmark')),
     ]
     rows.sort(key=lambda row: row['skill'])
     if [row['skill'] for row in rows] != SKILLS:
@@ -145,7 +168,7 @@ def run() -> dict:
     return {'schema': 'worldstage.skills_benchmark.v1', 'scope': 'offline_skill_contracts_source_provenance_and_negative_cases',
             'skill_count': len(SKILLS), 'counts': counts, 'coverage_fraction': round((counts['PASS'] + counts['FAIL']) / len(SKILLS), 3),
             'status': 'FAIL' if counts['FAIL'] else 'PARTIAL_SKILL_GATES' if counts['NOT_RUN'] else 'PASS_RECORDED_TASK_CASES',
-            'model_quality': 'NOT_RUN_USE_model_cli_benchmark', 'robot_sim2real': 'NOT_RUN', 'skills': rows}
+            'model_quality': 'NOT_RUN_USE_model_cli_benchmark_AND_behavior_benchmark_live', 'robot_sim2real': 'NOT_RUN', 'skills': rows}
 
 
 def _orchestrate() -> tuple[bool, str]:

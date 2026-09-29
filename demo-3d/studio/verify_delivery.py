@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from pipeline import ROOT, build, verify
+from behavior_benchmark import run as run_behavior_benchmark
 from robot_world import generate_object
 from scene_gate import qualify
 
@@ -15,7 +16,8 @@ def main() -> None:
     required = [ROOT / 'dist/index.html', ROOT / 'dist/lab.html', ROOT / 'package.json', ROOT / 'package-lock.json', ROOT / 'public/robots/S10-source.urdf', ROOT / 'public/robots/S10-collision.urdf', ROOT / 'public/robots/LICENSE-S10.txt', ROOT / 'examples/gx10-nemotron/receipt.json']
     assert all(path.is_file() for path in required), 'build files missing'
     skills = sorted((ROOT / 'skills').glob('*/SKILL.md'))
-    assert len(skills) == 16, f'expected 16 skills, found {len(skills)}'
+    assert len(skills) == 20, f'expected 20 skills, found {len(skills)}'
+    assert run_behavior_benchmark()['status'] == 'PASS'
     worldgen = json.loads((ROOT / 'public/worldgen/manifest.json').read_text())
     assert worldgen['source_provider'] == 'Hyper3D WorldGen' and worldgen['asset_count'] == 7
     assert worldgen['physics_status'] == 'source_glb_trimesh_rapier_metric_unverified_mjcf_proxy'
@@ -69,7 +71,7 @@ def main() -> None:
     manifest = json.loads((example / 'manifest.json').read_text())
     for filename, digest in manifest['artifacts_sha256'].items():
         assert hashlib.sha256((example / filename).read_bytes()).hexdigest() == digest
-    print('PASS: build, 16 skills, S10/TurtleBot3 source SHA, WorldGen 7 GLB SHA, scene gate, physical world assets, 3 themes, negative contract, artifact hashes')
+    print('PASS: build, 20 skills, behavior benchmark, S10/TurtleBot3 source SHA, WorldGen 7 GLB SHA, scene gate, physical world assets, 3 themes, negative contract, artifact hashes')
 
 
 if __name__ == '__main__':

@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlparse
 
 from pipeline import ROOT, RUNS, build
+from behavior_audit import audit_episode, save_audit
 from robot_world import base_scenario, generate_object, scenario_mjcf
 from scene_gate import qualify
 
@@ -74,13 +75,21 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_POST(self) -> None:  # noqa: N802
-        if self.path not in ("/api/build", "/api/lab/object", "/api/lab/mjcf", "/api/lab/scene-gate"):
+        if self.path not in ("/api/build", "/api/lab/object", "/api/lab/mjcf", "/api/lab/scene-gate", "/api/lab/episode-audit"):
             self._json(404, {"error": "not_found"}); return
         try:
             length = int(self.headers.get("Content-Length", "0"))
-            if not 0 < length <= 65536:
+            limit = 4_000_000 if self.path == "/api/lab/episode-audit" else 65536
+            if not 0 < length <= limit:
                 self._json(413, {"error": "body_size_invalid"}); return
             payload = json.loads(self.rfile.read(length))
+            if self.path == "/api/lab/episode-audit":
+                try:
+                    result = audit_episode(payload, allow_model=payload.get("mode") != "template")
+                except ValueError as exc:
+                    self._json(422, {"error": "invalid_episode", "detail": str(exc)[:200]}); return
+                self._json(200, save_audit(payload, result))
+                return
             if self.path == "/api/lab/scene-gate":
                 report = qualify(payload)
                 self._json(200 if report["structural_status"] == "PASS" else 422, report)

@@ -1,0 +1,22 @@
+{
+  "schema": "worldstage.behavior_ui_receipt.v1",
+  "source": "real_browser_interaction_on_local_WorldStage_2026-09-29",
+  "fixture_file": "behavior_ui_split.json.gz",
+  "fixture_sha256": "95cfb1ef235794fb8690c05b950715d3e3d4a87bca14854bb7d09863f5e395d3",
+  "decompressed_sha256": "c7055e6d976bb7dfe6e2d0767b00075d925eacbbca4c56ba836b1f0e361d80d7",
+  "source_run_ids": [
+    "episode-20260929T181344Z-ebdbd779",
+    "episode-20260929T181403Z-43a6b075"
+  ],
+  "obstacle_counts": [
+    18,
+    19
+  ],
+  "frame_counts": [
+    270,
+    387
+  ],
+  "nemotron_review": "NOT_RUN",
+  "robot_training": "BLOCKED",
+  "note": "Scripted patrol hit collision hotspot; generated ramp split the source scene into two audited episodes."
+}

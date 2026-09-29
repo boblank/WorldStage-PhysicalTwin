@@ -15,10 +15,13 @@
 | rollout-capture | 读取 MuJoCo S10 无控制轨迹 | 60 帧、URDF SHA、非可部署标签 |
 | nemotron-service-audit | 核对 GX10 已留存的模型运行回执 | 模型权重 SHA 与运行状态存在；当前在线质量另测 |
 | avatar-casting、memory-puzzle-director | Playwright 真浏览器选择 TurtleBot3 和 S10；完成宝箱、斜坡、守门兽、隐藏 NPC、错误答案、准入和数字分身结局 | 读取页面快照与压缩轨迹，核验 SHA、五条线索、顺序、错误答案、2906 帧、七个 WorldGen 网格碰撞体；另外两条结局未逐条复测 |
+| behavior-episode-capture、nemotron-behavior-audit、sim-dataset-curation、behavior-benchmark | 记录的浏览器轨迹与卡点／进展合成对照、错误时间戳和重复对象 ID 反例 | 控制来源和训练候选标签可追溯；Nemotron 实时质量另测 |
 
-此次记录的任务案例为 **16 PASS / 0 FAIL / 0 NOT_RUN**。其中浏览器用例是 `examples/skill-benchmark/browser_e2e_receipt.json` 与 `browser_trajectory.json.gz` 的回放核验；新提交后的浏览器回归仍应重新执行 UI 操作。TurtleBot3 和 S10 都是网页运动学代理。GX10 上 `model_cli` 的 8001 测试服务完成启动、带文件 SHA 的 doctor 和停止，原 8000 服务仍可用；回执在 `examples/gx10-nemotron/`。
+此次记录的离线任务案例为 **20 PASS / 0 FAIL / 0 NOT_RUN**；行为子集的八个正反例为 **8/8 PASS**。其中旧浏览器用例是 `examples/skill-benchmark/browser_e2e_receipt.json` 与 `browser_trajectory.json.gz` 的回放核验；新审核 UI 已在真实浏览器复测，场景切分压缩轨迹和 SHA 回执见 `behavior_ui_split.json.gz`、`behavior_ui_receipt.json`。TurtleBot3 和 S10 都是网页运动学代理。GX10 上 `model_cli` 的 8001 测试服务完成启动、带文件 SHA 的 doctor 和停止，原 8000 服务仍可用；回执在 `examples/gx10-nemotron/`。
 
 模型实时质量单独运行 `python3 studio/model_cli.py benchmark --base-url http://127.0.0.1:18769/v1 --model nemotron-3-nano-4b-gguf`。三题分别要求斜坡、球、石柱，严格成功须同时满足 **Nemotron 实际参与、六个字段均由模型有效给出、物体种类与任务匹配**。模板回退计为失败。现场回执见 `demo-3d/examples/gx10-nemotron/model_cli_benchmark.json`。
+
+行为审核的实时模型质量另用 `NEMOTRON_BASE_URL=... NEMOTRON_MODEL=... python3 studio/behavior_benchmark.py --live --output examples/skill-benchmark/behavior_model_report.json` 检查记录轨迹、卡点、正常进展三题。目前模型服务未连通，结果为 `NOT_RUN`；物体生成三题不能替代此项。具体数据契约见[行为数据链路](Behavior-Data-Pipeline.md)。
 
 物理审计独立运行 `python3 studio/physical_cli.py audit`。它读取实际导出网格和哈希，以每件物体 5×5 的竖直射线近似计算可接触顶面，与导出方盒的顶面比较。报告记录覆盖率、平均差与最大差，单位为 **展示单位**；目前不能写成米。若取得现场实测尺寸，可执行 `python3 studio/physical_cli.py calibrate --asset object_0000 --axis x --measured-length-m <实测值> --evidence <照片或测量日志> --output <回执路径>`，输出仅为单锚点的临时比例，不自动解除机器人训练阻断。
 

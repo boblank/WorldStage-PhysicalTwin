@@ -1,28 +1,46 @@
 {
   "schema": "worldstage.skills_benchmark.v1",
   "scope": "offline_skill_contracts_source_provenance_and_negative_cases",
-  "skill_count": 16,
+  "skill_count": 20,
   "counts": {
-    "PASS": 16,
+    "PASS": 20,
     "FAIL": 0,
     "NOT_RUN": 0
   },
   "coverage_fraction": 1.0,
   "status": "PASS_RECORDED_TASK_CASES",
-  "model_quality": "NOT_RUN_USE_model_cli_benchmark",
+  "model_quality": "NOT_RUN_USE_model_cli_benchmark_AND_behavior_benchmark_live",
   "robot_sim2real": "NOT_RUN",
   "skills": [
     {
       "skill": "avatar-casting",
       "status": "PASS",
       "detail": "real browser TurtleBot3 snapshot + S10 trajectory; both are kinematic proxies",
-      "duration_ms": 14
+      "duration_ms": 13
+    },
+    {
+      "skill": "behavior-benchmark",
+      "status": "PASS",
+      "detail": "8 offline cases; live Nemotron quality NOT_RUN here",
+      "duration_ms": 0
+    },
+    {
+      "skill": "behavior-episode-capture",
+      "status": "PASS",
+      "detail": "2 offline cases; live Nemotron quality NOT_RUN here",
+      "duration_ms": 118
     },
     {
       "skill": "memory-puzzle-director",
       "status": "PASS",
       "detail": "2906 browser frames, 5/5 clues, wrong answer rejected, mirror ending, 7 mesh colliders",
       "duration_ms": 11
+    },
+    {
+      "skill": "nemotron-behavior-audit",
+      "status": "PASS",
+      "detail": "2 offline cases; live Nemotron quality NOT_RUN here",
+      "duration_ms": 0
     },
     {
       "skill": "nemotron-service-audit",
@@ -34,7 +52,7 @@
       "skill": "physical-world-author",
       "status": "PASS",
       "detail": "123308 actual triangles; 7/7 proxy discrepancies; metric unknown",
-      "duration_ms": 2079
+      "duration_ms": 1942
     },
     {
       "skill": "physics-scenario-export",
@@ -46,18 +64,24 @@
       "skill": "robot-urdf-import",
       "status": "PASS",
       "detail": "S10:19 joints, TurtleBot3-Burger:6 joints",
-      "duration_ms": 2
+      "duration_ms": 3
     },
     {
       "skill": "rollout-capture",
       "status": "PASS",
       "detail": "60 frames; unactuated and non-deployable label",
-      "duration_ms": 2
+      "duration_ms": 1
     },
     {
       "skill": "scene-readiness-gate",
       "status": "PASS",
       "detail": "positive structural scene; duplicate-ID negative; training remains gated",
+      "duration_ms": 0
+    },
+    {
+      "skill": "sim-dataset-curation",
+      "status": "PASS",
+      "detail": "3 offline cases; live Nemotron quality NOT_RUN here",
       "duration_ms": 0
     },
     {
@@ -87,8 +111,8 @@
     {
       "skill": "world-orchestrate",
       "status": "PASS",
-      "detail": "ocean run 20260929T163801Z-194178; six artifact SHA-256 checked",
-      "duration_ms": 2
+      "detail": "ocean run 20260929T182050Z-43c99f; six artifact SHA-256 checked",
+      "duration_ms": 1
     },
     {
       "skill": "world-plan",
@@ -106,7 +130,7 @@
       "skill": "worldgen-visual-intake",
       "status": "PASS",
       "detail": "7 GLB SHA-256 and input image SHA-256",
-      "duration_ms": 11
+      "duration_ms": 5
     }
   ]
 }

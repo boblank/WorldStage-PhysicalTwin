@@ -4,7 +4,7 @@
 
 这是第三届 NVIDIA DGX Spark Agent Skills 挑战赛的 WorldStage。它把图像生成的场景、Nemotron 生成的物体、游戏里的探索，以及机器人仿真需要的来源和物理审查放进同一条流程。当前是**可运行的开发预览**；机器人训练准入仍为 `BLOCKED`。
 
-[项目报告](docs/项目报告.md) · [验收状态](docs/验收状态.md) · [Skill Benchmark](docs/Skill-Benchmark.md) · [WorldGen 来源](worldgen-assets/README.md) · [完整方案](docs/完整方案.md)
+[项目报告](docs/项目报告.md) · [验收状态](docs/验收状态.md) · [Skill Benchmark](docs/Skill-Benchmark.md) · [行为数据链路](docs/Behavior-Data-Pipeline.md) · [WorldGen 来源](worldgen-assets/README.md) · [完整方案](docs/完整方案.md)
 
 ## 先玩，再看世界是怎样来的
 
@@ -31,7 +31,7 @@ flowchart LR
 
 这里共享的是带来源的场景记录：物体尺寸和位置、视觉及碰撞资产、机器人模型、交互事件、生成方式、导出结果与未测项。它让下一步能追溯「这段坡是谁生成的」「这个尺寸有没有量过」。WorldGen 的源单位目前还没有米制标定；画面里的尺寸只按演示尺度处理。MJCF 仍使用简化碰撞形状，不能把可导出写成可训练。
 
-## 16 个 Skill 如何接力
+## 20 个 Skill 如何接力
 
 Skill 位于 [`demo-3d/skills/`](demo-3d/skills/)，实现和命令行入口位于 [`demo-3d/studio/`](demo-3d/studio/)。它们各自读取明确的前置产物，把输出和来源交给下一步。
 
@@ -42,12 +42,13 @@ Skill 位于 [`demo-3d/skills/`](demo-3d/skills/)，实现和命令行入口位�
 | 放进真实资产 | `worldgen-visual-intake`、`robot-urdf-import`、`avatar-casting` | 七件源网格、URDF 身份和代理运动边界 |
 | 生成并检查物理场景 | `physical-world-author`、`physics-scenario-export`、`scene-readiness-gate` | 新物体、MJCF 和阻断原因 |
 | 留下运行证据 | `rollout-capture`、`nemotron-service-audit` | 带来源标签的轨迹、GX10 模型身份及推理回执 |
+| 审核探索并筛选任务 | `behavior-episode-capture`、`nemotron-behavior-audit`、`sim-dataset-curation`、`behavior-benchmark` | 玩家意图与脚本运动分离、风险审查、带 SHA 的仿真任务候选与正反例评测 |
 
-当前记录的 Skill 任务案例是 **16 PASS / 0 FAIL / 0 NOT_RUN**。这是指定案例的结果，包含浏览器轨迹回放和反例检查；它不覆盖机器人训练，也没有逐条复测三种剧情结局。复核方法见 [Skill Benchmark](docs/Skill-Benchmark.md)。
+当前记录的离线 Skill 任务案例是 **20 PASS / 0 FAIL / 0 NOT_RUN**。这是指定案例的结果，包含浏览器轨迹回放和反例检查；Nemotron 行为审核的实时质量、机器人训练与三种剧情结局全量复测均不在此成绩内。复核方法见 [Skill Benchmark](docs/Skill-Benchmark.md)。
 
 ## Nemotron 在这里做什么
 
-我们在租用的 ASUS Ascent GX10 上运行 **NVIDIA Nemotron 3 Nano 4B GGUF**，用它把「做一段低摩擦斜坡」这类自然语言请求转成受约束的物体 JSON。网页据此增加对象，并把模型 ID、候选 SHA、字段接纳情况、耗时与来源写入回执。物理参数若没有实测，仍是待验证假设。此次实测的是 4B GGUF；Nemotron Omni 尚未运行。
+我们在租用的 ASUS Ascent GX10 上运行过 **NVIDIA Nemotron 3 Nano 4B GGUF**，用它把「做一段低摩擦斜坡」这类自然语言请求转成受约束的物体 JSON。网页据此增加对象，并把模型 ID、候选 SHA、字段接纳情况、耗时与来源写入回执。现在还增加了结构化探索记录审核：模型可根据停滞、碰撞热点和场景准入问题提出下一项实验，但不能批准机器人训练。行为审核的实时模型 Benchmark 尚未运行；物理参数若没有实测，仍是待验证假设。此次实测的是 4B GGUF；Nemotron Omni 尚未运行。
 
 `demo-3d/studio/model_cli.py` 将模型操作分成五个动作：
 
@@ -69,6 +70,7 @@ npm run build
 python3 studio/verify_delivery.py
 python3 studio/physical_cli.py audit
 python3 studio/skills_benchmark.py
+python3 studio/behavior_benchmark.py
 python3 studio/server.py
 ```
 
@@ -78,6 +80,7 @@ python3 studio/server.py
 python3 studio/model_cli.py doctor --base-url http://127.0.0.1:18769/v1 --model nemotron-3-nano-4b-gguf
 python3 studio/model_cli.py generate '为 S10 设计一段低摩擦斜坡' --base-url http://127.0.0.1:18769/v1 --model nemotron-3-nano-4b-gguf
 python3 studio/model_cli.py benchmark --base-url http://127.0.0.1:18769/v1 --model nemotron-3-nano-4b-gguf
+NEMOTRON_BASE_URL=http://127.0.0.1:18769/v1 NEMOTRON_MODEL=nemotron-3-nano-4b-gguf python3 studio/behavior_benchmark.py --live --output examples/skill-benchmark/behavior_model_report.json
 ```
 
 网页服务可用 `NEMOTRON_BASE_URL`、`NEMOTRON_MODEL` 指向同一个本地隧道。没有模型时可以显式使用模板，来源会写进结果；不要把模板画面当作 GX10 推理录像。
