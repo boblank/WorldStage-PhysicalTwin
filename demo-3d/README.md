@@ -55,4 +55,6 @@ python3 studio/scene_gate.py examples/physical-world/scenario.json --output exam
 
 ## 穿越故事与 WorldGen 视觉层
 
-打开 `/worldgen.html` 可逐件查看七个真实导出网格与估计碰撞包围盒。进入 `/lab.html` 先看到“主人，欢迎穿越到您的机器人分身”。四道线索依次是选择 S10/TurtleBot3 Burger 开源 URDF 分身、抵达记忆锚点、用 Nemotron 或显式模板生成物体、复核场景；随后可选择三条真相路线。TurtleBot3 原始 URDF、Apache-2.0 许可证、碰撞版与 SHA 在 `public/robots/`。WorldGen 授权导出的七件 GLB 已作为可视层加载，来源图片、原导出 ZIP 与逐件 SHA 见 `public/worldgen/manifest.json`；展示缩放不是米制校准，GLB 尚无已验证碰撞。浏览器物理仍由独立的 Rapier 场景承担，不能宣称机器人已穿越 WorldGen 几何。照片生成可运动分身还需网格、关节、惯量、碰撞和驱动限值验证，当前 `NOT_RUN`。
+打开 `/worldgen.html` 可逐件查看七个真实导出网格和原始包围盒。`/lab.html` 现为围合试验仓：穿越序章后选择 S10/TurtleBot3 Burger URDF 分身，靠近宝箱按 E 取得图纸，生成斜坡安抚守门兽，绕到黄栏后找到隐藏 NPC 并回答尺度问题，最后复核场景、选择三条真相之一。探索轨迹记录人的方向输入、代理位置、碰撞、谜题事件、模型来源和 WorldGen 导出 SHA，供仿真任务筛选，不是真机动作数据。
+
+WorldGen 七件 PBR GLB 在浏览器实际加载，并由原始顶点和三角索引创建七个 Rapier 静态三角网格碰撞体，共 123308 三角面。运行时采用一源单位等于一演示米的设计假设；没有实测尺度或接触校准。MJCF 导出仍使用简化形状，准入门会报告七项跨引擎接触不一致并将机器人训练标为 `BLOCKED`。照片生成可运动分身仍需网格、关节、惯量、碰撞和驱动限值验证，当前 `NOT_RUN`。

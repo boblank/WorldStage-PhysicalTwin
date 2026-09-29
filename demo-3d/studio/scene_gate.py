@@ -74,7 +74,10 @@ def qualify(scenario: Any, source: dict[str, Any] | None = None) -> dict[str, An
         if obj.get("kind") in {"ramp", "crystal", "building"}:
             issue("review", "collision_proxy_mismatch", "MJCF export uses a box proxy; inspect contact geometry before robot evaluation", label)
         if obj.get("collision_proxy_status") not in {None, "measured", "mesh_verified"}:
-            issue("review", "collision_proxy_unverified", "Collision is an estimated proxy, not the exported visual mesh", label)
+            detail = "Source triangles are loaded, but contact behaviour and metric scale are not validated" if obj.get("collision_proxy_status") == "source_glb_trimesh_rapier" else "Collision is an estimated proxy, not the exported visual mesh"
+            issue("review", "collision_proxy_unverified", detail, label)
+        if obj.get("collision_proxy_status") == "source_glb_trimesh_rapier":
+            issue("review", "engine_collision_mismatch", "Rapier uses source GLB triangles, while MJCF export still uses a primitive proxy", label)
         if obj.get("physical_parameter_status", scenario.get("parameter_status")) not in {"measured", "calibrated"}:
             issue("review", "unmeasured_physics", "Mass/friction are estimates or design assumptions", label)
 
@@ -98,6 +101,12 @@ def qualify(scenario: Any, source: dict[str, Any] | None = None) -> dict[str, An
                 issue("review", "background_visual_only", "3DGS has no verified collision in this contract")
     else:
         issue("review", "source_receipt_missing", "No source image/asset receipt supplied")
+    visual_source = scenario.get("visual_source")
+    if isinstance(visual_source, dict) and visual_source.get("provider") == "Hyper3D WorldGen":
+        if visual_source.get("source_unit_status") != "metric_measured":
+            issue("review", "unit_scale_unverified", "WorldGen visual scale has no measured metre reference")
+        if visual_source.get("box_fallback_count", 0):
+            issue("review", "mesh_collision_fallback", "At least one WorldGen GLB used a bounding box after mesh-collider failure")
 
     mjcf_exportable = False
     if not any(item["level"] == "error" for item in issues):
@@ -112,7 +121,7 @@ def qualify(scenario: Any, source: dict[str, Any] | None = None) -> dict[str, An
         "schema": "worldstage.scene_gate.v1",
         "structural_status": "PASS" if valid else "FAIL",
         "mjcf_exportable": mjcf_exportable,
-        "robot_training_status": "NOT_RUN" if valid else "BLOCKED",
+        "robot_training_status": "BLOCKED" if valid and any(item["code"] in {"engine_collision_mismatch", "mesh_collision_fallback"} for item in issues) else "NOT_RUN" if valid else "BLOCKED",
         "nvidia_simready_status": "NOT_RUN",
         "source_producer": source.get("producer") if isinstance(source, dict) else None,
         "object_count": len(obstacles),

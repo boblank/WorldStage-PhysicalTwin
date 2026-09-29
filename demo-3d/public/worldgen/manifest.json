@@ -9,9 +9,9 @@
     0,
     -10
   ],
-  "display_scale": 2.8,
+  "display_scale": 1.0,
   "asset_count": 7,
-  "physics_status": "visual_only_no_verified_collision",
+  "physics_status": "source_glb_trimesh_rapier_metric_unverified_mjcf_proxy",
   "assets": [
     {
       "id": "object_0000",
@@ -245,6 +245,6 @@
       "collision_status": "visual_only"
     }
   ],
-  "display_scale_status": "visual_presentation_only_not_metric",
+  "display_scale_status": "one_source_unit_as_one_demo_metre_design_assumption_not_measured",
   "project_reference_image_sha256": "5f0465dea292f1b77b0b649652c6361347d715063a89b8d338354580aa5374cb"
 }

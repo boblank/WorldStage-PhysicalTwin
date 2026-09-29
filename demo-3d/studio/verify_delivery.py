@@ -18,7 +18,8 @@ def main() -> None:
     assert len(skills) == 16, f'expected 16 skills, found {len(skills)}'
     worldgen = json.loads((ROOT / 'public/worldgen/manifest.json').read_text())
     assert worldgen['source_provider'] == 'Hyper3D WorldGen' and worldgen['asset_count'] == 7
-    assert worldgen['physics_status'] == 'visual_only_no_verified_collision'
+    assert worldgen['physics_status'] == 'source_glb_trimesh_rapier_metric_unverified_mjcf_proxy'
+    assert worldgen['display_scale'] == 1.0
     for asset in worldgen['assets']:
         assert hashlib.sha256((ROOT / 'public/worldgen' / asset['file']).read_bytes()).hexdigest() == asset['sha256']
     worldgen_dir = ROOT / 'public/worldgen/robot-test-arena'

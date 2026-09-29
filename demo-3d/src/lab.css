@@ -20,3 +20,7 @@
 @media(max-width:760px){.portal-card{padding:28px 23px}}
 
 #worldgen-status a{color:#f0c58e;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+.stage-overlay{z-index:2;max-width:78%;background:linear-gradient(90deg,#102838d9,#10283880 75%,transparent);padding:15px 19px 17px;border-radius:12px;left:12px;top:12px;pointer-events:none}.stage-overlay a{pointer-events:auto}.stage-overlay h2{font-size:27px}.stage-overlay #worldgen-status{max-width:390px;line-height:1.5;margin-top:8px}
+.puzzle-hud{position:absolute;right:18px;bottom:108px;width:min(300px,44%);z-index:3;padding:14px 16px;background:#102c39e8;border:1px solid #e3bb77aa;border-radius:11px;box-shadow:0 8px 25px #071d2c88}.puzzle-hud .eyebrow{display:block;color:#f3d49a}.puzzle-hud strong{display:block;font-size:12px;line-height:1.6;margin:7px 0 10px}.puzzle-hud button{width:100%;padding:9px 10px;border:1px solid #f2d29c;border-radius:7px;background:#ddb276;color:#122a36;font-size:11px;font-weight:800}.puzzle-hud button:disabled{opacity:.5;cursor:default;background:#153c48;color:#d5e9df;border-color:#567a80}
+.lab-stage{background:#152d33}.stage-note{z-index:2}.hud{z-index:2}
+@media(max-width:760px){.stage-overlay{max-width:90%;padding:9px}.stage-overlay h2{font-size:22px}.puzzle-hud{right:10px;bottom:108px;width:57%;padding:10px}.puzzle-hud strong{font-size:10px}.puzzle-hud button{font-size:9px}}

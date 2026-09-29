@@ -1,0 +1,53 @@
+{
+  "schema": "my_robot_avatar.final_receipt.v1",
+  "bundle_sha256": "29b35a214c333b72a7b073460ce91231c5039e17981000e7d3665321fa7cc65d",
+  "gx10_instance_id": "53340625",
+  "gx10_model": "nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF",
+  "runtime_health": {
+    "status": "ok",
+    "model_configured": true,
+    "model_connected": true,
+    "model_id": "nemotron-3-nano-4b-gguf",
+    "model_provider": "NVIDIA Nemotron",
+    "dist_exists": true
+  },
+  "story_portal_present": true,
+  "avatar_selector_present": true,
+  "worldgen": {
+    "provider": "Hyper3D WorldGen",
+    "original_export_sha256": "b0c68413fbc6dd9915694cbd432ac527d05c25ebddeb08837b94f53a56f8387c",
+    "input_image_sha256": "75e8cc2591da86777b24db6a1b906c5e5da934807912f2f8b60a9688e60e4e08",
+    "assets": 7,
+    "physics_status": "seven_source_GLB_static_Rapier_triangle_mesh_colliders_123308_triangles_metric_unverified_MJCF_proxy"
+  },
+  "final_ui_generation": {
+    "run_id": "lab-20260929T130217Z-fd1364fb",
+    "mode": "nvidia_nemotron",
+    "model": "nemotron-3-nano-4b-gguf",
+    "duration_ms": 5950,
+    "fallback_fields": []
+  },
+  "final_ui_story": {
+    "clues": "5/5",
+    "interactables": [
+      "chest",
+      "monster",
+      "hidden_npc"
+    ],
+    "puzzle_chain": "avatar > chest > generated_ramp > monster > npc_scale_answer > scene_gate > three_truths",
+    "worldgen_mesh_colliders": 7,
+    "worldgen_mesh_triangles": 123308,
+    "scene_gate": "structural_PASS;MJCF_exportable;robot_training_BLOCKED",
+    "cross_engine_collision_mismatches": 7,
+    "local_full_path": "PASS",
+    "gx10_latest_page": "WorldGen 7/7 meshes;Nemotron connected"
+  },
+  "verified": "remote_bundle_hash_pass;remote_verify_delivery_pass;remote_api_health_pass;remote_browser_7_of_7_GLB_and_7_source_mesh_colliders;local_browser_5_of_5_story_clues;local_browser_scene_gate_BLOCKED;Nemotron_generation_prior_receipt;remote_browser_scene_gate_BLOCKED",
+  "not_run": [
+    "WorldGen_metric_scale_and_contact_calibration",
+    "robot_joint_level_sim2sim",
+    "real_robot_execution",
+    "image_to_actuated_urdf",
+    "Isaac_Sim"
+  ]
+}
