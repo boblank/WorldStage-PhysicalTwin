@@ -1,6 +1,6 @@
 # 我的机器人分身 · WorldStage Physical Twin
 
-第三届 DGX Spark Agent Skills 作品《我的机器人分身》：NVIDIA Nemotron 驱动的可扩展 3D 世界规划，配合真实 S10 URDF、物理参数化场景、浏览器重力/碰撞预览，以及 MuJoCo 场景导出。页面有两条入口：`/` 是创意 3D 微世界，`/lab.html` 是 80 × 80 米机器人世界实验室。完整目标、当前证据与不足见根目录的《三套独立参赛方案与3小时交付》。
+第三届 DGX Spark Agent Skills 作品《我的机器人分身》：NVIDIA Nemotron 在 GX10 上把文字要求转为可检查的新物体；浏览器探索记录随后进入场景审核与仿真任务候选流程。真实 S10/TurtleBot3 URDF、WorldGen 导出网格、Rapier 预览和 MuJoCo 场景导出组成其余环节。页面有两条入口：`/` 是创意 3D 微世界，`/lab.html` 是 80 × 80 米机器人世界实验室。完整架构与证据边界见仓库根目录 README。
 
 ## 直接运行
 
@@ -14,15 +14,17 @@ python3 studio/server.py
 
 ## NVIDIA Nemotron 核心模型
 
-作品的结构化场景规划与新物体生成只接受 NVIDIA Nemotron。将 GX10 上官方 Nemotron OpenAI-compatible 服务暴露给此项目后设置：
+当前实测的是 NVIDIA 官方 **Nemotron 3 Nano 4B GGUF Q4_K_M**，在 GX10 上由 llama.cpp CUDA 后端服务。模型把文字需求转成受约束物体 JSON，服务器记录模型身份、字段接纳和回退来源。把 GX10 模型服务通过本地 SSH 隧道暴露给本项目后，以实际 `/v1/models` 返回值设置：
 
 ```bash
-export NEMOTRON_BASE_URL=http://127.0.0.1:8000/v1
-export NEMOTRON_MODEL=nemotron_3_nano_omni
+export NEMOTRON_BASE_URL=http://127.0.0.1:18769/v1
+export NEMOTRON_MODEL=nemotron-3-nano-4b-gguf
 python3 studio/server.py
 ```
 
-该模型名/端口来自 NVIDIA 官方 DGX Spark Nemotron playbook；若 Omni 部署赶不上窗口，也可评估 NVIDIA 官方 Nemotron 3 Nano 4B GGUF 路线。在不同 GX10 上须以 `/v1/models` 返回值为准。可先运行 `python3 studio/check_nemotron.py`，获得 API 模型列表与陌生提示词回执；该脚本只证明 API 可调用，仍须独立核对 GX10 进程、权重/配置 SHA 和设备身份。`/api/health` 检查服务可达与模型列表，但不能单独证明权重或 CUDA 后端身份；每次实际运行须核对 `runs/<id>/plan.json` 或 `generated_object.json` 的 `provenance.mode=nvidia_nemotron`。模型未连接时自动回退 `template` 并清楚显示。Workshop 中的 Qwen + TAO 是课程基线，不能代替本作品的 NVIDIA 核心模型。
+`18769` 是示例本地隧道端口，需按现场连接调整。`python3 studio/model_cli.py doctor --base-url "$NEMOTRON_BASE_URL" --model "$NEMOTRON_MODEL"` 可核对 API，GX10 设备、进程、权重及 CUDA 身份仍以独立回执为准。每次生成须检查 `generated_object.json` 的 `provenance.mode=nvidia_nemotron`；未连接时回退为 `template`，不能算模型推理。
+
+第二项职责是探索行为审核：`behavior-episode-capture` 收集人的输入与代理轨迹，确定性程序计算停滞/碰撞热点并运行 `scene-readiness-gate`，`nemotron-behavior-audit` 读取结构化文字摘要，提出有证据支持的风险和下一实验；`sim-dataset-curation` 保存带 SHA 的仿真任务候选。模型建议写在审核报告，不修改场景准入，也不替代玩家显式目标。行为离线反例 8/8 通过，**实时 Nemotron 行为质量仍为 `NOT_RUN`**。当前 4B 是 Mamba2/Transformer 混合文本模型，并非已运行的 MoE 或 Omni；不读取图像或 GLB。详见根目录 [README](../README.md) 与[行为数据链路](../docs/Behavior-Data-Pipeline.md)。
 
 ## 开发与复核
 
@@ -35,7 +37,7 @@ python3 studio/verify_delivery.py
 python3 studio/server.py
 ```
 
-16 个创意/物理/叙事 Skill 均有独立目录。`examples/forest-run/` 有完整 JSON + SHA 清单；`examples/physical-world/` 有可读的场景 JSON、MuJoCo XML、场景准入回执、60 帧无控制 S10 MuJoCo 轨迹、1.2 秒 MuJoCo 冒烟测试和单刚体 Rapier 对照。`/api/lab/object` 保存每次新物体生成及来源。浏览器的“探索轨迹”包含时间、代理根位置和代理接触次数；仅供场景筛选。后续需在 Isaac Sim/PhysX 与 MuJoCo 用相同场景/初态做配对运行、记录力和接触相位，再用授权真实数据做 sim2real 校准。
+20 个创意、物理、叙事、行为与审核 Skill 均有独立目录。`examples/forest-run/` 有完整 JSON + SHA 清单；`examples/physical-world/` 有场景 JSON、MuJoCo XML、准入回执、60 帧无控制 S10 MuJoCo 轨迹、1.2 秒 MuJoCo 冒烟测试和单刚体 Rapier 对照。`/api/lab/object` 保存每次新物体生成及来源。浏览器探索轨迹包含人的操作意图、代理根位置、目标点、接触、谜题事件和控制来源；当前仅供场景筛选。后续需在 Isaac Sim/PhysX 与 MuJoCo 用相同场景/初态做配对运行、记录力和接触相位，再用授权真实数据做 sim2real 校准。
 
 场景准入 Skill 的离线调用：
 
