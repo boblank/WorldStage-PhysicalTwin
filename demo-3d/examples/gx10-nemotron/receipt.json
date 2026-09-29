@@ -1,0 +1,283 @@
+{
+  "status": "GX10_NEMOTRON_CORE_INFERENCE_PASS",
+  "time_utc": "2026-09-29T10:56:03Z",
+  "instance_id": 53340625,
+  "hostname": "777772671cb1",
+  "architecture": "aarch64",
+  "gpu": "NVIDIA GB10, 580.173.02",
+  "model_repo": "nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF",
+  "model_repo_revision": "ba223d14e45525f7fae81db77ea8cabeb2fc6c25",
+  "model_file_sha256": "be5d9a656a51922f24f1f09a759cebb694e1f5d9728bf0ef9f8c972c5a0b5ef2",
+  "model_file_bytes": 2837072864,
+  "llama_cpp_source_commit": "86ea01d05ec237f89b78b41c8c1ee0f908141ac7",
+  "llama_server_sha256": "09cd2497f9dffa81be5aa058ae3e585077ebfc0da71ab6d4a6201ec8dd99196c",
+  "llama_process_cmdline": "./llama.cpp/build/bin/llama-server -m /workspace/models/nemotron-4b-gguf/NVIDIA-Nemotron3-Nano-4B-Q4_K_M.gguf --alias nemotron-3-nano-4b-gguf --host 127.0.0.1 --port 8000 -ngl 99 -c 4096 --jinja",
+  "cuda_backend_loaded": true,
+  "model_api": {
+    "models": [
+      {
+        "name": "nemotron-3-nano-4b-gguf",
+        "model": "nemotron-3-nano-4b-gguf",
+        "modified_at": "",
+        "size": "",
+        "digest": "",
+        "type": "model",
+        "description": "",
+        "tags": [
+          ""
+        ],
+        "capabilities": [
+          "completion"
+        ],
+        "parameters": "",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "",
+          "families": [
+            ""
+          ],
+          "parameter_size": "",
+          "quantization_level": ""
+        }
+      }
+    ],
+    "object": "list",
+    "data": [
+      {
+        "id": "nemotron-3-nano-4b-gguf",
+        "aliases": [
+          "nemotron-3-nano-4b-gguf"
+        ],
+        "tags": [],
+        "object": "model",
+        "created": 1790678646,
+        "owned_by": "llamacpp",
+        "meta": {
+          "vocab_type": 2,
+          "n_vocab": 131072,
+          "n_ctx": 4096,
+          "n_ctx_train": 1048576,
+          "n_embd": 3136,
+          "n_params": 3973556832,
+          "size": 2829187200,
+          "ftype": "Q4_K - Medium"
+        }
+      }
+    ]
+  },
+  "worldstage_health": {
+    "status": "ok",
+    "model_configured": true,
+    "model_connected": true,
+    "model_id": "nemotron-3-nano-4b-gguf",
+    "model_provider": "NVIDIA Nemotron",
+    "dist_exists": true
+  },
+  "api_probe": {
+    "status": "API_PROBE_PASS_BACKEND_IDENTITY_PENDING",
+    "model_requested": "nemotron-3-nano-4b-gguf",
+    "models_returned": [
+      "nemotron-3-nano-4b-gguf"
+    ],
+    "response_model": "nemotron-3-nano-4b-gguf",
+    "latency_ms": 2555,
+    "prompt": "给 S10 四足机器人设计一个新的雨后斜坡障碍。只输出 JSON，包含 name、kind、size、mass_kg、friction、material。",
+    "content": "{\n  \"name\": \"Rainy Slope\",\n  \"kind\": \"sloped barrier\",\n  \"size\": 0.5,\n  \"mass_kg\": 2.0,\n  \"friction\": 0.3,\n  \"material\": \"recycled plastic\"\n}",
+    "host": "777772671cb1",
+    "time_utc": "2026-09-29T10:39:52Z",
+    "backend_identity_required": [
+      "GX10 instance identity",
+      "server process/container",
+      "weight or config SHA"
+    ]
+  },
+  "worldstage_runs": [
+    {
+      "id": "lab-20260929T104015Z-7007fd58",
+      "generated_object": {
+        "object": {
+          "id": "generated-7007fd58",
+          "name": "LowFrictionRamp",
+          "kind": "ramp",
+          "size": [
+            2,
+            0.5,
+            0.3
+          ],
+          "position": [
+            0,
+            0,
+            0.5
+          ],
+          "yaw": 0,
+          "mass_kg": 0.5,
+          "friction": 0.3,
+          "material": "wood",
+          "physical_parameter_status": "unmeasured_hypothesis"
+        },
+        "provenance": {
+          "mode": "nvidia_nemotron",
+          "model": "nemotron-3-nano-4b-gguf",
+          "fallback_reason": null,
+          "prompt": "在S10前方增加一段低摩擦斜坡，用于轮腿越障测试",
+          "server_generation_ms": 6504,
+          "model_fields_accepted": [
+            "name",
+            "kind",
+            "size",
+            "mass_kg",
+            "friction",
+            "material"
+          ],
+          "model_fields_fallback": [],
+          "model_candidate_sha256": "f97c1bf2d2cba53178b12cb9ed798e1f93f3fccf39fb61cd51589695ca950727"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETE",
+        "sha256": "f224355fc68213c3cbca98eb2d96fd1fda04aff1c8cab27bdd51a54f37369ba6",
+        "mode": "nvidia_nemotron"
+      },
+      "model_candidate": {
+        "name": "LowFrictionRamp",
+        "kind": "ramp",
+        "size": [
+          2,
+          0.5,
+          0.3
+        ],
+        "mass_kg": 0.5,
+        "friction": 0.3,
+        "material": "wood"
+      }
+    },
+    {
+      "id": "lab-20260929T104232Z-6f9b685b",
+      "generated_object": {
+        "object": {
+          "id": "generated-6f9b685b",
+          "name": "StoneStep",
+          "kind": "box",
+          "size": [
+            0.5,
+            0.2,
+            0.2
+          ],
+          "position": [
+            0,
+            0,
+            0.5
+          ],
+          "yaw": 0,
+          "mass_kg": 0,
+          "friction": 0.5,
+          "material": "stone",
+          "physical_parameter_status": "unmeasured_hypothesis"
+        },
+        "provenance": {
+          "mode": "nvidia_nemotron",
+          "model": "nemotron-3-nano-4b-gguf",
+          "fallback_reason": null,
+          "prompt": "一块低矮的石台阶，测试轮腿机器人越障",
+          "server_generation_ms": 6069,
+          "model_fields_accepted": [
+            "name",
+            "kind",
+            "size",
+            "mass_kg",
+            "friction",
+            "material"
+          ],
+          "model_fields_fallback": [],
+          "model_candidate_sha256": "eac6ce759f639205a977985be0671eb270187ba59b6df7a41839d97f9c718644"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETE",
+        "sha256": "3cef826b856f01f9f4b406d554246b3f41d7b4063a4e7e6b018262c36aac70c1",
+        "mode": "nvidia_nemotron"
+      },
+      "model_candidate": {
+        "name": "StoneStep",
+        "kind": "box",
+        "size": [
+          0.5,
+          0.2,
+          0.2
+        ],
+        "mass_kg": 0,
+        "friction": 0.5,
+        "material": "stone"
+      }
+    },
+    {
+      "id": "lab-20260929T104648Z-365aa036",
+      "generated_object": {
+        "object": {
+          "id": "generated-365aa036",
+          "name": "WoodenRamp",
+          "kind": "ramp",
+          "size": [
+            2,
+            0.5,
+            0.3
+          ],
+          "position": [
+            0,
+            0,
+            0.15
+          ],
+          "yaw": -0.15,
+          "mass_kg": 0,
+          "friction": 0.3,
+          "material": "wood",
+          "physical_parameter_status": "unmeasured_hypothesis"
+        },
+        "provenance": {
+          "mode": "nvidia_nemotron",
+          "model": "nemotron-3-nano-4b-gguf",
+          "fallback_reason": null,
+          "prompt": "在S10前方放置一段低摩擦木质斜坡，测试上坡接触",
+          "server_generation_ms": 6630,
+          "model_fields_accepted": [
+            "name",
+            "kind",
+            "size",
+            "mass_kg",
+            "friction",
+            "material"
+          ],
+          "model_fields_fallback": [],
+          "model_candidate_sha256": "ae3ba88bda3e5e7627c1bfc4f2b1ee18904795b0fe616a17667ec3c157cf0a70"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETE",
+        "sha256": "7ca8638a4de8dcb2fa1198546506ab24e7402bb03a5a48877c94b530bdb78425",
+        "mode": "nvidia_nemotron"
+      },
+      "model_candidate": {
+        "name": "WoodenRamp",
+        "kind": "ramp",
+        "size": [
+          2,
+          0.5,
+          0.3
+        ],
+        "mass_kg": 0,
+        "friction": 0.3,
+        "material": "wood"
+      }
+    }
+  ],
+  "limits": [
+    "generated physical parameters are unmeasured hypotheses",
+    "S10 browser motion is a kinematic proxy",
+    "Isaac Sim and real S10 locomotion not run"
+  ],
+  "worldstage_source_sha256": {
+    "robot_world.py": "43205dd3b0853e6498c261ce38aa856d6d4276fa0fa2a17195562fe7d5a8a3a5",
+    "server.py": "22760d55a552673aefe2c27f007f9d0b5688ebe742222d0ec25d9709bd213064"
+  }
+}

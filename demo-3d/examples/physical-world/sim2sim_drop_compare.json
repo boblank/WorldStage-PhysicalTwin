@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "scope": "single_rigid_cube_gravity_contact_comparison_only",
+  "engines": {
+    "mujoco": "3.14.0",
+    "rapier": "@dimforge/rapier3d-compat"
+  },
+  "gravity_m_s2": [
+    0,
+    0,
+    -9.81
+  ],
+  "timestep_s": 0.005,
+  "object": {
+    "id": "test-cube",
+    "mass_kg": 2,
+    "size_m": [
+      0.6,
+      0.6,
+      0.6
+    ],
+    "initial_height_m": 3
+  },
+  "samples": [
+    {
+      "time_s": 0.005,
+      "mujoco_height_m": 3,
+      "rapier_height_m": 2.99985,
+      "absolute_difference_m": 0.00015
+    },
+    {
+      "time_s": 0.25,
+      "mujoco_height_m": 2.69957,
+      "rapier_height_m": 2.6919,
+      "absolute_difference_m": 0.00767
+    },
+    {
+      "time_s": 0.5,
+      "mujoco_height_m": 1.78601,
+      "rapier_height_m": 1.77068,
+      "absolute_difference_m": 0.01533
+    },
+    {
+      "time_s": 0.75,
+      "mujoco_height_m": 0.27882,
+      "rapier_height_m": 0.30226,
+      "absolute_difference_m": 0.02344
+    },
+    {
+      "time_s": 1,
+      "mujoco_height_m": 0.29993,
+      "rapier_height_m": 0.29998,
+      "absolute_difference_m": 0.00005
+    },
+    {
+      "time_s": 1.2,
+      "mujoco_height_m": 0.29994,
+      "rapier_height_m": 0.29993,
+      "absolute_difference_m": 0.00001
+    }
+  ],
+  "mean_abs_difference_pre_contact_m": 0.00772,
+  "robot_dynamics": "NOT_RUN"
+}

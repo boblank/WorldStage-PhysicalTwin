@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "scope": "generated_world_plus_unactuated_s10_gravity_contact_smoke",
+  "mujoco_version": "3.14.0",
+  "gravity_m_s2": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "nbody": 26,
+  "ngeom": 36,
+  "nq": 30,
+  "nv": 28,
+  "samples": [
+    {
+      "time_s": 0.005,
+      "cube_height_m": 3.0,
+      "robot_base_height_m": 0.42,
+      "contact_count": 8
+    },
+    {
+      "time_s": 0.25,
+      "cube_height_m": 2.69957,
+      "robot_base_height_m": 0.43937,
+      "contact_count": 4
+    },
+    {
+      "time_s": 0.5,
+      "cube_height_m": 1.78601,
+      "robot_base_height_m": 0.3376,
+      "contact_count": 1
+    },
+    {
+      "time_s": 0.75,
+      "cube_height_m": 0.27882,
+      "robot_base_height_m": 0.16103,
+      "contact_count": 14
+    },
+    {
+      "time_s": 1.0,
+      "cube_height_m": 0.29993,
+      "robot_base_height_m": 0.1585,
+      "contact_count": 14
+    },
+    {
+      "time_s": 1.2,
+      "cube_height_m": 0.29994,
+      "robot_base_height_m": 0.15605,
+      "contact_count": 14
+    }
+  ]
+}

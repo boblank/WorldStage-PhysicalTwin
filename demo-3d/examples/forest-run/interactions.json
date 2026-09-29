@@ -1,0 +1,45 @@
+{
+  "initial_state": "dormant",
+  "states": [
+    "dormant",
+    "awakened"
+  ],
+  "events": [
+    {
+      "target": "artifact-1",
+      "trigger": "click",
+      "effect": "awaken_and_reveal",
+      "reversible": true
+    },
+    {
+      "target": "artifact-2",
+      "trigger": "click",
+      "effect": "awaken_and_reveal",
+      "reversible": true
+    },
+    {
+      "target": "artifact-3",
+      "trigger": "click",
+      "effect": "awaken_and_reveal",
+      "reversible": true
+    },
+    {
+      "target": "artifact-4",
+      "trigger": "click",
+      "effect": "awaken_and_reveal",
+      "reversible": true
+    },
+    {
+      "target": "artifact-5",
+      "trigger": "click",
+      "effect": "awaken_and_reveal",
+      "reversible": true
+    },
+    {
+      "target": "artifact-6",
+      "trigger": "click",
+      "effect": "awaken_and_reveal",
+      "reversible": true
+    }
+  ]
+}

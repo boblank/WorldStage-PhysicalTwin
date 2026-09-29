@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "checks": 4,
+  "problems": [],
+  "scope": "schema_and_interaction_contract_only"
+}

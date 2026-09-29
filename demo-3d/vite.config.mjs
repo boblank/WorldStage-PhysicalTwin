@@ -1,0 +1,13 @@
+import { defineConfig } from 'vite';
+import { resolve } from 'node:path';
+
+export default defineConfig({
+  build: {
+    rolldownOptions: {
+      input: {
+        studio: resolve(import.meta.dirname, 'index.html'),
+        lab: resolve(import.meta.dirname, 'lab.html'),
+      },
+    },
+  },
+});

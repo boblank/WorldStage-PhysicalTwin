@@ -1,0 +1,1199 @@
+{
+  "name": "DEEPRobotics S10",
+  "representation": "collision_geometry_from_official_urdf",
+  "source_sha256": "64903c21f925583b99d69220aef8214ec458498c23eacb7b83e8e48afd70f3e8",
+  "license": "BSD-3-Clause",
+  "source_file": "S10-source.urdf",
+  "collision_file": "S10-collision.urdf",
+  "coordinate_system": "z_up_meters",
+  "total_mass_kg": 18.987425,
+  "links": [
+    {
+      "name": "base_link",
+      "mass_kg": 8.023087,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.08,
+            "length": 0.6
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.024,
+              0.0
+            ],
+            "rpy": [
+              0.0,
+              1.5707963268,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.08,
+            "length": 0.6
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.024,
+              0.0
+            ],
+            "rpy": [
+              0.0,
+              1.5707963268,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.16,
+              0.048,
+              0.6
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rpy": [
+              0.0,
+              1.5707963268,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fl_hipx",
+      "mass_kg": 0.627405,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.1
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.054,
+              0.0
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fl_hipy",
+      "mass_kg": 0.885874,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.064,
+              0.024,
+              0.18
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.012,
+              -0.09
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.08
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.018,
+              -0.18
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fl_knee",
+      "mass_kg": 0.640283,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.058,
+              0.02,
+              0.18
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.012,
+              -0.09
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.05
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.002,
+              -0.18
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fl_wheel",
+      "mass_kg": 0.587952,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.081,
+            "length": 0.037
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fr_hipx",
+      "mass_kg": 0.626546,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.1
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.054,
+              0.0
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fr_hipy",
+      "mass_kg": 0.885874,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.064,
+              0.024,
+              0.18
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.012,
+              -0.09
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.08
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.018,
+              -0.18
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fr_knee",
+      "mass_kg": 0.640283,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.058,
+              0.02,
+              0.18
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.012,
+              -0.09
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.05
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.002,
+              -0.18
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "fr_wheel",
+      "mass_kg": 0.587952,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.081,
+            "length": 0.037
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hl_hipx",
+      "mass_kg": 0.626546,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.1
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.054,
+              0.0
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hl_hipy",
+      "mass_kg": 0.885874,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.064,
+              0.024,
+              0.18
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.012,
+              -0.09
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.08
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.018,
+              -0.18
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hl_knee",
+      "mass_kg": 0.640283,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.058,
+              0.02,
+              0.18
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.012,
+              -0.09
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.05
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.002,
+              -0.18
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hl_wheel",
+      "mass_kg": 0.587952,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.081,
+            "length": 0.037
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hr_hipx",
+      "mass_kg": 0.627405,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.1
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.054,
+              0.0
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hr_hipy",
+      "mass_kg": 0.885874,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.064,
+              0.024,
+              0.18
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.012,
+              -0.09
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.08
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.018,
+              -0.18
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hr_knee",
+      "mass_kg": 0.640283,
+      "collisions": [
+        {
+          "shape": "box",
+          "params": {
+            "size": [
+              0.058,
+              0.02,
+              0.18
+            ]
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.012,
+              -0.09
+            ],
+            "rpy": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.04,
+            "length": 0.05
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              -0.002,
+              -0.18
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hr_wheel",
+      "mass_kg": 0.587952,
+      "collisions": [
+        {
+          "shape": "cylinder",
+          "params": {
+            "radius": 0.081,
+            "length": 0.037
+          },
+          "origin": {
+            "xyz": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rpy": [
+              1.5707963268,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "imu_link",
+      "mass_kg": 0,
+      "collisions": []
+    },
+    {
+      "name": "front_lidar_link",
+      "mass_kg": 0,
+      "collisions": []
+    },
+    {
+      "name": "back_lidar_link",
+      "mass_kg": 0,
+      "collisions": []
+    }
+  ],
+  "joints": [
+    {
+      "name": "fl_hipx_joint",
+      "type": "revolute",
+      "parent": "base_link",
+      "child": "fl_hipx",
+      "origin": {
+        "xyz": [
+          0.2277,
+          0.0574,
+          0.0
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-0.6109",
+        "upper": "0.6109",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "fl_hipy_joint",
+      "type": "revolute",
+      "parent": "fl_hipx",
+      "child": "fl_hipy",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.0779,
+          0.0
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-2.5307",
+        "upper": "2.5307",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "fl_knee_joint",
+      "type": "revolute",
+      "parent": "fl_hipy",
+      "child": "fl_knee",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.0,
+          -0.18
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-2.7227",
+        "upper": "2.7227",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "fl_wheel_joint",
+      "type": "continuous",
+      "parent": "fl_knee",
+      "child": "fl_wheel",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.045891,
+          -0.18
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "effort": "14.00",
+        "velocity": "65.50"
+      }
+    },
+    {
+      "name": "fr_hipx_joint",
+      "type": "revolute",
+      "parent": "base_link",
+      "child": "fr_hipx",
+      "origin": {
+        "xyz": [
+          0.2277,
+          -0.0574,
+          0.0
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-0.6109",
+        "upper": "0.6109",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "fr_hipy_joint",
+      "type": "revolute",
+      "parent": "fr_hipx",
+      "child": "fr_hipy",
+      "origin": {
+        "xyz": [
+          0.0,
+          -0.0779,
+          0.0
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-2.5307",
+        "upper": "2.5307",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "fr_knee_joint",
+      "type": "revolute",
+      "parent": "fr_hipy",
+      "child": "fr_knee",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.0,
+          -0.18
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-2.7227",
+        "upper": "2.7227",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "fr_wheel_joint",
+      "type": "continuous",
+      "parent": "fr_knee",
+      "child": "fr_wheel",
+      "origin": {
+        "xyz": [
+          0.0,
+          -0.045891,
+          -0.18
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "effort": "14.00",
+        "velocity": "65.50"
+      }
+    },
+    {
+      "name": "hl_hipx_joint",
+      "type": "revolute",
+      "parent": "base_link",
+      "child": "hl_hipx",
+      "origin": {
+        "xyz": [
+          -0.2277,
+          0.0574,
+          0.0
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-0.6109",
+        "upper": "0.6109",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "hl_hipy_joint",
+      "type": "revolute",
+      "parent": "hl_hipx",
+      "child": "hl_hipy",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.0779,
+          0.0
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-2.5307",
+        "upper": "2.5307",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "hl_knee_joint",
+      "type": "revolute",
+      "parent": "hl_hipy",
+      "child": "hl_knee",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.0,
+          -0.18
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-2.7227",
+        "upper": "2.7227",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "hl_wheel_joint",
+      "type": "continuous",
+      "parent": "hl_knee",
+      "child": "hl_wheel",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.045891,
+          -0.18
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "effort": "14.00",
+        "velocity": "65.50"
+      }
+    },
+    {
+      "name": "hr_hipx_joint",
+      "type": "revolute",
+      "parent": "base_link",
+      "child": "hr_hipx",
+      "origin": {
+        "xyz": [
+          -0.2277,
+          -0.0574,
+          0.0
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-0.6109",
+        "upper": "0.6109",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "hr_hipy_joint",
+      "type": "revolute",
+      "parent": "hr_hipx",
+      "child": "hr_hipy",
+      "origin": {
+        "xyz": [
+          0.0,
+          -0.0779,
+          0.0
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-2.5307",
+        "upper": "2.5307",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "hr_knee_joint",
+      "type": "revolute",
+      "parent": "hr_hipy",
+      "child": "hr_knee",
+      "origin": {
+        "xyz": [
+          0.0,
+          0.0,
+          -0.18
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "lower": "-2.7227",
+        "upper": "2.7227",
+        "effort": "50.00",
+        "velocity": "25.76"
+      }
+    },
+    {
+      "name": "hr_wheel_joint",
+      "type": "continuous",
+      "parent": "hr_knee",
+      "child": "hr_wheel",
+      "origin": {
+        "xyz": [
+          0.0,
+          -0.045891,
+          -0.18
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "limit": {
+        "effort": "14.00",
+        "velocity": "65.50"
+      }
+    },
+    {
+      "name": "imu_joint",
+      "type": "fixed",
+      "parent": "base_link",
+      "child": "imu_link",
+      "origin": {
+        "xyz": [
+          0.0075,
+          -0.0373,
+          0.0556
+        ],
+        "rpy": [
+          1.57,
+          1.57,
+          0.0
+        ]
+      },
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "limit": null
+    },
+    {
+      "name": "front_lidar_joint",
+      "type": "fixed",
+      "parent": "base_link",
+      "child": "front_lidar_link",
+      "origin": {
+        "xyz": [
+          0.22341,
+          0.0,
+          -0.0001
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "limit": null
+    },
+    {
+      "name": "back_lidar_joint",
+      "type": "fixed",
+      "parent": "base_link",
+      "child": "back_lidar_link",
+      "origin": {
+        "xyz": [
+          -0.22341,
+          0.0,
+          -0.0001
+        ],
+        "rpy": [
+          0.0,
+          0.0,
+          3.14159
+        ]
+      },
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "limit": null
+    }
+  ]
+}

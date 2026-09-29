@@ -1,0 +1,180 @@
+{
+  "schema": "worldstage.physical.v1",
+  "seed": 290929,
+  "units": "m_kg_s",
+  "coordinate_system": "z_up",
+  "gravity_m_s2": [
+    0,
+    0,
+    -9.81
+  ],
+  "parameter_status": "design_assumption_unmeasured",
+  "visual_generation": "procedural_geometry_and_canvas_material",
+  "ground": {
+    "size_m": [
+      80,
+      80
+    ],
+    "friction": 0.8
+  },
+  "robot": {
+    "name": "DEEPRobotics S10",
+    "asset": "robots/S10-collision.urdf",
+    "source_urdf_sha256": "64903c21f925583b99d69220aef8214ec458498c23eacb7b83e8e48afd70f3e8",
+    "browser_mode": "kinematic_collision_proxy_only"
+  },
+  "obstacles": [
+    {
+      "id": "step-a",
+      "name": "低台阶",
+      "kind": "box",
+      "position": [
+        -5.0,
+        0.0,
+        0.12
+      ],
+      "size": [
+        3.0,
+        2.0,
+        0.24
+      ],
+      "yaw": 0,
+      "mass_kg": 0,
+      "friction": 0.85,
+      "material": "stone"
+    },
+    {
+      "id": "step-b",
+      "name": "中台阶",
+      "kind": "box",
+      "position": [
+        -1.5,
+        0.0,
+        0.22
+      ],
+      "size": [
+        3.0,
+        2.0,
+        0.44
+      ],
+      "yaw": 0,
+      "mass_kg": 0,
+      "friction": 0.85,
+      "material": "stone"
+    },
+    {
+      "id": "platform",
+      "name": "高台",
+      "kind": "box",
+      "position": [
+        2.5,
+        0.0,
+        0.35
+      ],
+      "size": [
+        4.0,
+        3.0,
+        0.7
+      ],
+      "yaw": 0,
+      "mass_kg": 0,
+      "friction": 0.8,
+      "material": "metal"
+    },
+    {
+      "id": "ramp",
+      "name": "斜坡",
+      "kind": "ramp",
+      "position": [
+        8.0,
+        0.0,
+        0.27
+      ],
+      "size": [
+        4.0,
+        2.5,
+        0.16
+      ],
+      "yaw": -0.15,
+      "mass_kg": 0,
+      "friction": 0.65,
+      "material": "wood"
+    },
+    {
+      "id": "test-cube",
+      "name": "重力测试箱",
+      "kind": "box",
+      "position": [
+        0.0,
+        -6.0,
+        3.0
+      ],
+      "size": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "yaw": 0,
+      "mass_kg": 2.0,
+      "friction": 0.65,
+      "material": "warning"
+    },
+    {
+      "id": "wet-yard",
+      "name": "雨后低摩擦试验区",
+      "kind": "box",
+      "position": [
+        -22.0,
+        -8.0,
+        0.025
+      ],
+      "size": [
+        12.0,
+        8.0,
+        0.05
+      ],
+      "yaw": 0,
+      "mass_kg": 0,
+      "friction": 0.25,
+      "material": "metal"
+    },
+    {
+      "id": "rough-lane",
+      "name": "高摩擦粗糙带",
+      "kind": "box",
+      "position": [
+        20.0,
+        -6.0,
+        0.025
+      ],
+      "size": [
+        16.0,
+        5.0,
+        0.05
+      ],
+      "yaw": 0,
+      "mass_kg": 0,
+      "friction": 1.15,
+      "material": "stone"
+    },
+    {
+      "id": "wood-yard",
+      "name": "木质操作平台",
+      "kind": "box",
+      "position": [
+        18.0,
+        16.0,
+        0.025
+      ],
+      "size": [
+        12.0,
+        10.0,
+        0.05
+      ],
+      "yaw": 0,
+      "mass_kg": 0,
+      "friction": 0.55,
+      "material": "wood"
+    }
+  ]
+}

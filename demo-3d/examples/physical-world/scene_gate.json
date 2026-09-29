@@ -1,0 +1,72 @@
+{
+  "schema": "worldstage.scene_gate.v1",
+  "structural_status": "PASS",
+  "mjcf_exportable": true,
+  "robot_training_status": "NOT_RUN",
+  "nvidia_simready_status": "NOT_RUN",
+  "source_producer": null,
+  "object_count": 8,
+  "issues": [
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "step-a"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "step-b"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "platform"
+    },
+    {
+      "level": "review",
+      "code": "collision_proxy_mismatch",
+      "detail": "MJCF export uses a box proxy; inspect contact geometry before robot evaluation",
+      "object_id": "ramp"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "ramp"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "test-cube"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "wet-yard"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "rough-lane"
+    },
+    {
+      "level": "review",
+      "code": "unmeasured_physics",
+      "detail": "Mass/friction are estimates or design assumptions",
+      "object_id": "wood-yard"
+    },
+    {
+      "level": "review",
+      "code": "source_receipt_missing",
+      "detail": "No source image/asset receipt supplied"
+    }
+  ],
+  "scenario_sha256": "8b59c5abb27a51dddb32249598d78666491c96d1e276a88799882053c0ed683c",
+  "source_sha256": null
+}

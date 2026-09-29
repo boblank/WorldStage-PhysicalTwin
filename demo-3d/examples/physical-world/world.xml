@@ -1,0 +1,32 @@
+<mujoco model="worldstage_physical_world">
+  <compiler angle="radian" coordinate="local" />
+  <option gravity="0 0 -9.81" timestep="0.005" />
+  <worldbody>
+    <geom name="ground" type="plane" size="40 40 0.1" friction="0.8 0.01 0.0001" />
+    <body name="step-a" pos="-5.0 0.0 0.12" euler="0 0 0">
+      <geom name="step-a-geom" type="box" size="1.5 1.0 0.12" friction="0.85 0.01 0.0001" />
+    </body>
+    <body name="step-b" pos="-1.5 0.0 0.22" euler="0 0 0">
+      <geom name="step-b-geom" type="box" size="1.5 1.0 0.22" friction="0.85 0.01 0.0001" />
+    </body>
+    <body name="platform" pos="2.5 0.0 0.35" euler="0 0 0">
+      <geom name="platform-geom" type="box" size="2.0 1.5 0.35" friction="0.8 0.01 0.0001" />
+    </body>
+    <body name="ramp" pos="8.0 0.0 0.27" euler="0 -0.15 0">
+      <geom name="ramp-geom" type="box" size="2.0 1.25 0.08" friction="0.65 0.01 0.0001" />
+    </body>
+    <body name="test-cube" pos="0.0 -6.0 3.0" euler="0 0 0">
+      <freejoint />
+      <geom name="test-cube-geom" type="box" size="0.3 0.3 0.3" friction="0.65 0.01 0.0001" mass="2.0" />
+    </body>
+    <body name="wet-yard" pos="-22.0 -8.0 0.025" euler="0 0 0">
+      <geom name="wet-yard-geom" type="box" size="6.0 4.0 0.025" friction="0.25 0.01 0.0001" />
+    </body>
+    <body name="rough-lane" pos="20.0 -6.0 0.025" euler="0 0 0">
+      <geom name="rough-lane-geom" type="box" size="8.0 2.5 0.025" friction="1.15 0.01 0.0001" />
+    </body>
+    <body name="wood-yard" pos="18.0 16.0 0.025" euler="0 0 0">
+      <geom name="wood-yard-geom" type="box" size="6.0 5.0 0.025" friction="0.55 0.01 0.0001" />
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,46 @@
+{
+  "schema": "worldstage.final_deployment.v1",
+  "bundle_sha256": "2e0044e1d0a5f4a3cc31b0edc506ab254a167049ae43a346f52ce8e273759914",
+  "base_url": "http://127.0.0.1:8767",
+  "health": {
+    "status": "ok",
+    "model_configured": true,
+    "model_connected": true,
+    "model_id": "nemotron-3-nano-4b-gguf",
+    "model_provider": "NVIDIA Nemotron",
+    "dist_exists": true
+  },
+  "lab_page_scene_gate_control": true,
+  "scene_gate": {
+    "structural_status": "PASS",
+    "mjcf_exportable": true,
+    "robot_training_status": "NOT_RUN",
+    "issue_codes": [
+      "collision_proxy_mismatch",
+      "source_receipt_missing",
+      "unmeasured_physics"
+    ]
+  },
+  "object": {
+    "run_id": "lab-20260929T111547Z-c458b678",
+    "kind": "building",
+    "material": "stone",
+    "provenance": {
+      "mode": "nvidia_nemotron",
+      "model": "nemotron-3-nano-4b-gguf",
+      "fallback_reason": null,
+      "prompt": "Add an amber observation tower beside the east path, two meters wide, on firm ground",
+      "server_generation_ms": 6529,
+      "model_fields_accepted": [
+        "name",
+        "kind",
+        "size",
+        "mass_kg",
+        "friction",
+        "material"
+      ],
+      "model_fields_fallback": [],
+      "model_candidate_sha256": "fafb7e97b6ca70cad05512c390cc3b583f557cf368edb3cd7367a07f85ef54d6"
+    }
+  }
+}

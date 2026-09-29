@@ -1,0 +1,21 @@
+{
+  "run_id": "20260929T093529Z-d0de5c",
+  "status": "COMPLETE",
+  "mode": "template",
+  "artifacts_sha256": {
+    "intake.json": "2295a1955efb22932ef6cfe90d513f0ffdb9ceba20a6a4d62cd0cf456b28ec68",
+    "plan.json": "6dbf5aaa97977097058a27999081a5766511280e031c378e057e81fc9eb31086",
+    "scene.json": "40c267383db472d03a8b09484f1922956986fb0f925c831a666e6eed3e43dacc",
+    "interactions.json": "dadc150b24a42f367e92fc87ae17becf10d8d2380d3d478fbc47b9a39effb402",
+    "story.json": "14bd9803df86bbf7733ff2cdfe6ce07ee612ddf14c390ba937c2f1a2d782d258",
+    "evaluation.json": "f85f53de63ec19c4dad69b101c3f8f3f568979f5f886e3daafaa705f4eaeee9a"
+  },
+  "pipeline": [
+    "intake",
+    "plan",
+    "compose",
+    "interact",
+    "narrate",
+    "verify"
+  ]
+}

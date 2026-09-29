@@ -1,0 +1,54 @@
+{
+  "theme": "forest",
+  "title": "夜光森林",
+  "subtitle": "会回应访客的微型森林剧场",
+  "chapter": "每次触碰都会改变林间的光与故事。",
+  "colors": [
+    "#0b2231",
+    "#83d6ab",
+    "#ffbc83"
+  ],
+  "objects": [
+    {
+      "id": "artifact-1",
+      "name": "守夜古树",
+      "type": "tree",
+      "story": "古树记得每个走进森林的人，树冠亮起便是它的回答。"
+    },
+    {
+      "id": "artifact-2",
+      "name": "月影幼苗",
+      "type": "tree",
+      "story": "幼苗会朝最近的声音生长，把路留给后来者。"
+    },
+    {
+      "id": "artifact-3",
+      "name": "露光晶簇",
+      "type": "crystal",
+      "story": "露珠把昨夜的星光收在晶面里，轻触就会闪烁。"
+    },
+    {
+      "id": "artifact-4",
+      "name": "萤火星核",
+      "type": "orb",
+      "story": "萤火虫围着光核飞行，替迷路的人标出方向。"
+    },
+    {
+      "id": "artifact-5",
+      "name": "苔藓拱门",
+      "type": "arch",
+      "story": "穿过拱门，脚下的苔藓会记录新的旅程。"
+    },
+    {
+      "id": "artifact-6",
+      "name": "黎明之门",
+      "type": "portal",
+      "story": "当六处光源醒来，森林便把黎明交还给天空。"
+    }
+  ],
+  "provenance": {
+    "mode": "template",
+    "model": null,
+    "fallback_reason": "选择了模板模式"
+  }
+}
