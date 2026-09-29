@@ -1,0 +1,13 @@
+{
+  "schema": "worldstage.nemotron_doctor.v1",
+  "status": "API_READY_LOCAL_FILES_HASHED_PROCESS_OWNERSHIP_SEPARATE",
+  "base_url": "http://127.0.0.1:8001/v1",
+  "model": "nemotron-3-nano-4b-gguf",
+  "models_returned": [
+    "nemotron-3-nano-4b-gguf"
+  ],
+  "weight_sha256": "be5d9a656a51922f24f1f09a759cebb694e1f5d9728bf0ef9f8c972c5a0b5ef2",
+  "binary_sha256": "09cd2497f9dffa81be5aa058ae3e585077ebfc0da71ab6d4a6201ec8dd99196c",
+  "weight_path": "/workspace/models/nemotron-4b-gguf/NVIDIA-Nemotron3-Nano-4B-Q4_K_M.gguf",
+  "binary_path": "/workspace/worldstage/llama.cpp/build/bin/llama-server"
+}

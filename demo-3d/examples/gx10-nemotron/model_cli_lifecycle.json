@@ -1,0 +1,17 @@
+{
+  "schema": "worldstage.nemotron_lifecycle.v1",
+  "time_utc": "2026-09-29T16:40:00Z",
+  "instance_id": 53340625,
+  "host": "777772671cb1",
+  "model": "nemotron-3-nano-4b-gguf",
+  "test_port": 8001,
+  "start_status": "READY",
+  "test_pid": 11245,
+  "doctor_status": "API_READY_LOCAL_FILES_HASHED_PROCESS_OWNERSHIP_SEPARATE",
+  "stop_status": "SIGTERM_SENT",
+  "post_stop_test_port": "CLOSED",
+  "original_production_port_8000": "READY",
+  "weight_sha256": "be5d9a656a51922f24f1f09a759cebb694e1f5d9728bf0ef9f8c972c5a0b5ef2",
+  "binary_sha256": "09cd2497f9dffa81be5aa058ae3e585077ebfc0da71ab6d4a6201ec8dd99196c",
+  "scope": "model_cli lifecycle only; no robot or Sim2Real evidence"
+}

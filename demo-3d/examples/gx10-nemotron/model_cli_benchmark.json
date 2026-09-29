@@ -1,0 +1,47 @@
+{
+  "schema": "worldstage.nemotron_benchmark.v1",
+  "scope": "three_object_generation_cases_not_robot_training",
+  "model": "nemotron-3-nano-4b-gguf",
+  "base_url": "http://127.0.0.1:18769/v1",
+  "cases": [
+    {
+      "prompt": "为 S10 设计一段固定的低摩擦斜坡，帮助测试攀爬。",
+      "expected_kind": "ramp",
+      "actual_kind": "ramp",
+      "model_used": true,
+      "all_fields_model_accepted": true,
+      "semantic_match": true,
+      "latency_ms": 6332,
+      "run_id": "lab-20260929T163036Z-ac0f505c",
+      "candidate_sha256": "65c7f07ca9818cdb665153491397757724ee0f0ad1a6b16bc5f35068ed1054d5"
+    },
+    {
+      "prompt": "创建一个可滚动的金属球，测试碰撞与避障。",
+      "expected_kind": "sphere",
+      "actual_kind": "sphere",
+      "model_used": true,
+      "all_fields_model_accepted": true,
+      "semantic_match": true,
+      "latency_ms": 6804,
+      "run_id": "lab-20260929T163043Z-3ce5b0c9",
+      "candidate_sha256": "3c6fea38802f8120be5329a023bf5b7f3f995294a64641c4dc5b26d6c9599e80"
+    },
+    {
+      "prompt": "创建一根固定的石柱，测试绕行。",
+      "expected_kind": "pillar",
+      "actual_kind": "pillar",
+      "model_used": true,
+      "all_fields_model_accepted": true,
+      "semantic_match": true,
+      "latency_ms": 6781,
+      "run_id": "lab-20260929T163049Z-ec0a1607",
+      "candidate_sha256": "6f6d9b79baf8de977c2f4d8e9e1f9eaff56380df6fda4ae470102549ea5e7901"
+    }
+  ],
+  "strict_success": 3,
+  "total": 3,
+  "status": "PASS",
+  "template_fallback_count": 0,
+  "backend_identity_receipt": "receipt.json",
+  "observed_on": "2026-09-29 GX10 instance 53340625 through local SSH tunnel"
+}

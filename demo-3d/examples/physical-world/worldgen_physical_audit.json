@@ -1,0 +1,207 @@
+{
+  "schema": "worldstage.physical_audit.v1",
+  "status": "REVIEW_MESH_PROXY_DIFFERENCE",
+  "source_manifest_sha256": "a76308670054889d89a2fb19f315fb0a645ea5380c527692db962dcff8274334",
+  "source_scene_sha256": "c00ba0bee6469ade5a3f1d321b91918dae98039f75ad9da80fd7f3fda2c8d979",
+  "source_units": "unknown",
+  "display_scale_is_metric": false,
+  "grid": "5x5",
+  "threshold_display_units": 0.05,
+  "total_triangles": 123308,
+  "mismatched_assets": [
+    "object_0000",
+    "object_0001",
+    "object_0002",
+    "object_0003",
+    "object_0004",
+    "object_0005",
+    "object_0006"
+  ],
+  "assets": [
+    {
+      "id": "object_0000",
+      "sha256": "bae36cda0a2a48f485a0e0f6645342cbc2aa7e7b7960b349ecfeb0b11d135427",
+      "vertices": 10669,
+      "triangles": 17316,
+      "bounds_display_units_xyz": [
+        [
+          -1.8804,
+          -0.7161
+        ],
+        [
+          -10.7284,
+          -8.5819
+        ],
+        [
+          -0.1003,
+          0.4642
+        ]
+      ],
+      "proxy_top_display_units": 0.5645,
+      "grid_samples": 25,
+      "mesh_top_hits": 19,
+      "coverage_fraction": 0.76,
+      "mean_abs_top_difference_display_units": 0.2319,
+      "max_abs_top_difference_display_units": 0.5422
+    },
+    {
+      "id": "object_0001",
+      "sha256": "142df77de777489075b727eab6b21076a8ccd6e0299a9b8f745746c126086692",
+      "vertices": 9534,
+      "triangles": 17488,
+      "bounds_display_units_xyz": [
+        [
+          0.4553,
+          1.1884
+        ],
+        [
+          -11.6938,
+          -11.0554
+        ],
+        [
+          -0.2906,
+          0.3634
+        ]
+      ],
+      "proxy_top_display_units": 0.665,
+      "grid_samples": 25,
+      "mesh_top_hits": 17,
+      "coverage_fraction": 0.68,
+      "mean_abs_top_difference_display_units": 0.3294,
+      "max_abs_top_difference_display_units": 0.6381
+    },
+    {
+      "id": "object_0002",
+      "sha256": "13b26c8db638c4e69cb5c67b7c94398844af7a89ee76f9ad651fadeae7ba5927",
+      "vertices": 9402,
+      "triangles": 17202,
+      "bounds_display_units_xyz": [
+        [
+          1.9058,
+          2.7256
+        ],
+        [
+          -10.7327,
+          -9.8315
+        ],
+        [
+          -0.3566,
+          0.3916
+        ]
+      ],
+      "proxy_top_display_units": 0.7747,
+      "grid_samples": 25,
+      "mesh_top_hits": 13,
+      "coverage_fraction": 0.52,
+      "mean_abs_top_difference_display_units": 0.547,
+      "max_abs_top_difference_display_units": 0.8289
+    },
+    {
+      "id": "object_0003",
+      "sha256": "351df2f2a04ff47d0f78e8836c4e5bfdb7a20259d14bfd9fc59ca33b510d72a9",
+      "vertices": 10143,
+      "triangles": 17882,
+      "bounds_display_units_xyz": [
+        [
+          0.728,
+          1.5208
+        ],
+        [
+          -8.6177,
+          -7.7537
+        ],
+        [
+          -0.3345,
+          0.4186
+        ]
+      ],
+      "proxy_top_display_units": 0.7766,
+      "grid_samples": 25,
+      "mesh_top_hits": 15,
+      "coverage_fraction": 0.6,
+      "mean_abs_top_difference_display_units": 0.5108,
+      "max_abs_top_difference_display_units": 0.8474
+    },
+    {
+      "id": "object_0004",
+      "sha256": "c9403e2a4da2d80e8940c96adda66dad6aa40ac2e4986e9d3d7bb977a8797033",
+      "vertices": 11792,
+      "triangles": 17618,
+      "bounds_display_units_xyz": [
+        [
+          3.0603,
+          4.7115
+        ],
+        [
+          -9.8056,
+          -8.0895
+        ],
+        [
+          -0.3109,
+          0.0587
+        ]
+      ],
+      "proxy_top_display_units": 0.3696,
+      "grid_samples": 25,
+      "mesh_top_hits": 13,
+      "coverage_fraction": 0.52,
+      "mean_abs_top_difference_display_units": 0.3635,
+      "max_abs_top_difference_display_units": 0.4516
+    },
+    {
+      "id": "object_0005",
+      "sha256": "d02ccbbee2dba25602644b1c5e701756a84f0e90a896d13818c3e128b73a2f4d",
+      "vertices": 9511,
+      "triangles": 17962,
+      "bounds_display_units_xyz": [
+        [
+          1.8716,
+          2.2204
+        ],
+        [
+          -6.0863,
+          -5.7369
+        ],
+        [
+          -0.2611,
+          0.087
+        ]
+      ],
+      "proxy_top_display_units": 0.3482,
+      "grid_samples": 25,
+      "mesh_top_hits": 21,
+      "coverage_fraction": 0.84,
+      "mean_abs_top_difference_display_units": 0.3333,
+      "max_abs_top_difference_display_units": 0.4041
+    },
+    {
+      "id": "object_0006",
+      "sha256": "291502903a73cc6b310645bbe3304c29eb8f321789f285f123478ec94df9c1e2",
+      "vertices": 16498,
+      "triangles": 17840,
+      "bounds_display_units_xyz": [
+        [
+          -1.7539,
+          4.9531
+        ],
+        [
+          -15.9571,
+          -15.3372
+        ],
+        [
+          -0.4504,
+          0.2941
+        ]
+      ],
+      "proxy_top_display_units": 0.7446,
+      "grid_samples": 25,
+      "mesh_top_hits": 5,
+      "coverage_fraction": 0.2,
+      "mean_abs_top_difference_display_units": 0.4565,
+      "max_abs_top_difference_display_units": 0.4649
+    }
+  ],
+  "method": "vertical triangle surface sampling versus exported axis-aligned box top; no Rapier or MuJoCo dynamics",
+  "robot_training_status": "BLOCKED",
+  "real_contact_status": "NOT_RUN"
+}

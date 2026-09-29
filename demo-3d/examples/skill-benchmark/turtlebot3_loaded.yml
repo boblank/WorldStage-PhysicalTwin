@@ -1,0 +1,117 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link "W✦ WORLDSTAGE" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - text: W✦
+      - generic [ref=e5]: WORLDSTAGE
+    - generic [ref=e6]:
+      - strong [ref=e7]: 我的机器人分身
+      - generic [ref=e8]: 穿越 · 探索 · 解谜 · 物理证据
+    - generic [ref=e9]: RAPIER · g = 9.81 m/s²
+  - main [ref=e10]:
+    - complementary [ref=e11]:
+      - text: 01 / PORTAL & WORLD
+      - heading [level=1] [ref=e12]:
+        - text: 醒来，你已进入
+        - emphasis [ref=e13]: 机器人的身体。
+      - paragraph [ref=e14]: 80 × 80 米世界。输入新物体，它会带着尺寸、材料、质量和摩擦系数进入场景；未测量的物理参数标为假设。
+      - generic [ref=e15]:
+        - generic [ref=e16]: 新增一个可测试的物体
+        - textbox "新增一个可测试的物体" [ref=e17]: 一块低矮的石台阶，测试轮腿机器人越障
+        - generic [ref=e18]:
+          - generic [ref=e19]: 生成来源
+          - combobox "生成来源" [ref=e20]:
+            - option "NVIDIA Nemotron 优先" [selected]
+            - option "确定性模板"
+        - button "生成并投放物体 ↗" [ref=e21] [cursor=pointer]:
+          - text: 生成并投放物体
+          - generic [ref=e22]: ↗
+      - generic [ref=e23]:
+        - generic [ref=e24]: 快速试验
+        - button "重力球" [ref=e25] [cursor=pointer]
+        - button "斜坡" [ref=e26] [cursor=pointer]
+        - button "石柱" [ref=e27] [cursor=pointer]
+      - generic [ref=e28]:
+        - text: MODEL PROVENANCE
+        - paragraph [ref=e29]: NVIDIA Nemotron 未连接；可用模板演示
+        - paragraph [ref=e30]: 每次生成会记录模型或模板来源。
+    - generic [ref=e31]:
+      - generic:
+        - text: 02 / WORLDGEN TEST CHAMBER
+        - heading "失落的记忆试验仓" [level=2]
+        - paragraph: 拖动旋转 · 滚轮缩放 · 点击地面设目标 · W A S D 移动 · E 互动
+        - paragraph:
+          - link "查看 WorldGen 原始七物件 ↗" [ref=e34] [cursor=pointer]:
+            - /url: /worldgen.html
+          - text: · WorldGen 7/7 GLB · 7 个原网格碰撞体 / 123308 三角面 · 米制未校准
+      - generic [ref=e35]:
+        - generic [ref=e36]: SIGNAL / 当前线索
+        - strong [ref=e37]: 第一条信号来自西侧入口，坐标 (-8, -5)：发光宝箱。
+        - button "靠近发光线索后按 E" [disabled] [ref=e101]
+      - generic [ref=e39]:
+        - generic [ref=e40]: 位置 -11.0, 0.0 m
+        - generic [ref=e41]: 接触 0
+        - generic [ref=e42]: 物体 18
+      - generic [ref=e43]: 用户行为记录为探索意图与场景反例；机器人关节动力学仍须在 MuJoCo / Isaac Sim 复核。
+    - complementary [ref=e44]:
+      - text: 03 / AVATAR & EVIDENCE
+      - heading "选择分身， 追索真相。" [level=2] [ref=e45]: 选择分身，追索真相。
+      - generic [ref=e46]:
+        - generic [ref=e47]: 机器人载体
+        - combobox "机器人载体" [ref=e48]:
+          - option "DEEPRobotics S10 · 轮腿"
+          - option "ROBOTIS TurtleBot3 Burger · 轮式" [selected]
+        - button "确认这具分身 ↗" [active] [ref=e49] [cursor=pointer]
+        - text: ROBOTIS TurtleBot3 Burger
+        - strong [ref=e50]: 7 连杆 · 6 关节 · 1.00 kg
+        - text: URDF SHA bc453d08d6a3f2da…
+        - paragraph [ref=e51]: ROBOTIS 官方 URDF 的轮式载体；适合平地。台阶、坡道和真实速度限值未在此网页验证。
+      - generic [ref=e52]:
+        - button "开始自动探索" [ref=e53] [cursor=pointer]
+        - button "重置位置" [ref=e54] [cursor=pointer]
+      - generic [ref=e55]:
+        - text: MEMORY / PUZZLE
+        - strong [ref=e56]: 第一道记忆：开启宝箱
+        - paragraph [ref=e57]: 沿西侧入口的金色信号抵达 (-8, -5)。靠近宝箱按 E，取出失落的能源钥匙。
+        - text: 1 / 5 线索
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: 世界重力
+          - strong [ref=e61]: 9.81 m/s²
+        - generic [ref=e62]:
+          - generic [ref=e63]: 运动模式
+          - strong [ref=e64]: 运动学代理
+        - generic [ref=e65]:
+          - generic [ref=e66]: 重力箱高度
+          - strong [ref=e67]: 0.30 m
+        - generic [ref=e68]:
+          - generic [ref=e69]: 记录帧数
+          - strong [ref=e70]: "9"
+        - generic [ref=e71]:
+          - generic [ref=e72]: 累计路程
+          - strong [ref=e73]: 0.0 m
+      - generic [ref=e74]:
+        - text: PAIRED PHYSICS PROBE
+        - strong [ref=e75]: Rapier × MuJoCo
+        - paragraph [ref=e76]: 接触前平均高度差 0.00772 m · S10 动力学 NOT_RUN
+        - generic [ref=e77]:
+          - generic "Rapier / MuJoCo 重力箱中心高度" [ref=e78]: 0.005 s · 3.000 / 3.000 m
+          - generic "Rapier / MuJoCo 重力箱中心高度" [ref=e79]: 0.500 s · 1.771 / 1.786 m
+          - generic "Rapier / MuJoCo 重力箱中心高度" [ref=e80]: 0.750 s · 0.302 / 0.279 m
+          - generic "Rapier / MuJoCo 重力箱中心高度" [ref=e81]: 1.200 s · 0.300 / 0.300 m
+        - generic [ref=e82]: 仅 2 kg 自由落体箱；双分身关节级 Sim2Sim 未运行。
+      - generic [ref=e83]:
+        - text: SCENE READINESS GATE
+        - strong [ref=e84]: 生成场景准入
+        - paragraph [ref=e85]: WorldGen 代理已进入场景，请复核
+        - generic [ref=e86]: 11 项物理参数未测 · 1 项形状待复核 · 0 项跨引擎接触不一致 · NVIDIA SimReady NOT_RUN
+        - generic [ref=e87]:
+          - button "复核当前场景 ↗" [ref=e88] [cursor=pointer]
+          - button "准入报告 .json ↗" [ref=e89] [cursor=pointer]
+      - text: EXPORT / SIM2SIM HANDOFF
+      - generic [ref=e90]:
+        - button "场景数据 .json ↗" [ref=e91] [cursor=pointer]
+        - button "MuJoCo 场景 .xml ↗" [ref=e92] [cursor=pointer]
+        - button "探索轨迹 .json ↗" [ref=e93] [cursor=pointer]
+      - paragraph [ref=e94]: 导出的是带物理参数的场景与代理探索记录，可用于筛选仿真任务；不是真机动作或已验证的 sim2real 数据。
+  - status: ROBOTIS TurtleBot3 Burger 分身已装载

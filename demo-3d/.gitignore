@@ -3,3 +3,4 @@ dist/
 runs/
 __pycache__/
 *.pyc
+.playwright-cli/

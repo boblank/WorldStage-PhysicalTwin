@@ -1,0 +1,34 @@
+{
+  "schema": "worldstage.browser_benchmark_receipt.v1",
+  "time_utc": "2026-09-29T16:37:00Z",
+  "browser_url": "http://127.0.0.1:8765/lab.html",
+  "method": "Playwright CLI real browser UI clicks and auto-explore",
+  "trajectory_file": "browser_trajectory.json.gz",
+  "trajectory_sha256": "e9ef526e2b68eab6997a156d66ef58686deaf496526b21868b4bf7e40c93d533",
+  "trajectory_gzip_sha256": "0a39ea082f2275910550df3c0e3b67168caee1704f67f05f8dd08d2cf19922c3",
+  "avatars_observed": [
+    "ROBOTIS TurtleBot3 Burger",
+    "DEEPRobotics S10"
+  ],
+  "s10_avatar_final": "DEEPRobotics S10",
+  "story_clues": [
+    "avatar",
+    "chest",
+    "monster",
+    "npc",
+    "gate"
+  ],
+  "puzzle_flags": {
+    "chest": true,
+    "monster": true,
+    "npc": true
+  },
+  "truth_route": "mirror",
+  "negative_answer_observed": true,
+  "gate_observed": "structural PASS / MJCF exportable / robot training BLOCKED",
+  "source_worldgen_mesh_colliders_observed": 7,
+  "screenshot_or_video": "NOT_SAVED",
+  "scope": "browser_story_flow_and_proxy_trajectory_only",
+  "turtlebot3_snapshot_file": "turtlebot3_loaded.yml",
+  "turtlebot3_snapshot_sha256": "c466937d95cb85b18b767164f165549645cf6807459b7ca3aaec3cb84d6d1c8d"
+}
